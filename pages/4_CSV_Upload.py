@@ -59,15 +59,19 @@ for dataset_name in dataset_names:
                 key=f"upload_{dataset_name}",
             )
             if uploaded_file is not None:
-                dataframe, missing_columns = save_uploaded_dataset(dataset_name, uploaded_file)
-                if missing_columns:
-                    st.error(
-                        "Upload failed. Missing columns: "
-                        + ", ".join(missing_columns)
-                    )
+                try:
+                    dataframe, missing_columns = save_uploaded_dataset(dataset_name, uploaded_file)
+                except ValueError as exc:
+                    st.error(str(exc))
                 else:
-                    st.success(f"{dataset_name.title()} uploaded successfully.")
-                    st.dataframe(dataframe.head(8), hide_index=True, use_container_width=True)
+                    if missing_columns:
+                        st.error(
+                            "Upload failed. Missing columns: "
+                            + ", ".join(missing_columns)
+                        )
+                    else:
+                        st.success(f"{dataset_name.title()} uploaded successfully.")
+                        st.dataframe(dataframe.head(8), hide_index=True, use_container_width=True)
 
         with reset_col:
             st.markdown(" ")

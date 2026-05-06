@@ -2,6 +2,7 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+from pandas.errors import ParserError
 
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
@@ -106,10 +107,21 @@ def _prepare_dataframe(name: str, df: pd.DataFrame) -> pd.DataFrame:
     return _coerce_booleans(prepared)
 
 
+def _read_csv(source, source_label: str) -> pd.DataFrame:
+    try:
+        return pd.read_csv(source)
+    except ParserError as exc:
+        raise ValueError(
+            f"Unable to parse CSV data from {source_label}. "
+            "Check for unescaped commas or mismatched quotes in the file."
+        ) from exc
+
+
 @st.cache_data(show_spinner=False)
 def load_default_dataset(name: str) -> pd.DataFrame:
     config = DATASET_CONFIG[name]
-    dataframe = pd.read_csv(DATA_DIR / config["file"])
+    source_path = DATA_DIR / config["file"]
+    dataframe = _read_csv(source_path, source_path.name)
     return _prepare_dataframe(name, dataframe)
 
 
@@ -139,7 +151,7 @@ def get_dataset_source(name: str) -> str:
 
 def save_uploaded_dataset(name: str, uploaded_file) -> tuple[pd.DataFrame | None, list[str]]:
     uploaded_file.seek(0)
-    dataframe = pd.read_csv(uploaded_file)
+    dataframe = _read_csv(uploaded_file, uploaded_file.name)
     dataframe = _prepare_dataframe(name, dataframe)
     missing_columns = [
         column
