@@ -1,0 +1,28 @@
+lead_id,account_id,lead_date,lead_type,source,campaign,contact_title
+L001,A001,2025-12-12,MQL,Webinar,Future of Media Monetization,VP Revenue Strategy
+L002,A001,2026-01-17,SQL,Outbound,Data Platform Expansion,Director of Ad Product
+L003,A001,2026-03-14,MQL,Content Syndication,Audience Intelligence Guide,Head of Analytics
+L004,A002,2025-11-28,SQL,Partner,Attribution Advisory,SVP Analytics
+L005,A002,2026-01-09,MQL,Event,Streaming Growth Summit,Director of Subscriber Insights
+L006,A002,2026-02-18,SQL,Outbound,Executive Value Review,VP Data Strategy
+L007,A002,2026-04-04,SQL,Referral,Peer Introduction,CFO
+L008,A003,2026-03-09,MQL,Webinar,Forecasting for Broadcasters,Revenue Operations Manager
+L009,A003,2026-04-22,SQL,Outbound,Forecasting Discovery,Director of Planning
+L010,A004,2025-12-20,MQL,Event,Sports Media Innovation Forum,Chief Commercial Officer
+L011,A004,2026-02-11,SQL,Partner,Rights Data Assessment,VP Sponsorship Analytics
+L012,A004,2026-03-19,SQL,Executive Outreach,Executive Alignment,Head of Digital Strategy
+L013,A005,2026-04-08,MQL,Content Syndication,Podcast Yield Playbook,Monetization Manager
+L014,A006,2025-12-05,MQL,Event,Subscription Analytics Roadshow,SVP Product
+L015,A006,2026-02-27,SQL,Outbound,Newsroom Personalization Audit,Director of Audience
+L016,A007,2026-01-30,MQL,Webinar,Ad Ops Transformation,Director of Ad Operations
+L017,A008,2025-11-22,SQL,Partner,Retail Media Strategy Session,VP Retail Media
+L018,A008,2026-01-15,MQL,Event,Identity in Media Summit,Head of Data Partnerships
+L019,A008,2026-02-25,SQL,Outbound,Identity Graph Expansion,SVP Audience Data
+L020,A008,2026-04-11,MQL,Content Syndication,Retail Media Growth Guide,Director of Sales Strategy
+L021,A009,2026-03-03,MQL,Content Syndication,Editorial Performance Scorecard,Managing Editor
+L022,A010,2026-02-02,SQL,Outbound,Radio Attribution Workshop,VP Insights
+L023,A011,2025-12-14,SQL,Partner,OTT Commerce Assessment,GM Commerce
+L024,A011,2026-03-07,MQL,Event,Streaming Revenue Symposium,Director of Lifecycle Marketing
+L025,A011,2026-04-02,SQL,Executive Outreach,Commerce Expansion Review,Chief Digital Officer
+L026,A012,2026-01-26,MQL,Webinar,Inventory Forecasting Clinic,Director of Revenue Operations
+L027,A012,2026-03-29,SQL,Outbound,Forecasting Proposal Follow-Up,VP Ad Operations

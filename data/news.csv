@@ -1,0 +1,11 @@
+news_id,account_id,news_date,headline,summary,sentiment,importance
+N001,A001,2026-04-23,Nova Broadcast expands connected TV inventory,Nova Broadcast announced a larger connected TV package that could benefit monetization and audience data initiatives.,Positive,Medium
+N002,A002,2026-04-28,StreamWave launches premium ad-supported tier,StreamWave unveiled a new ad-supported subscription tier that raises urgency around cross-channel attribution and subscriber analytics.,Positive,High
+N003,A004,2026-04-15,Apex Sports wins new regional rights package,Apex Sports secured a major regional rights package and is investing in sponsorship analytics infrastructure.,Positive,High
+N004,A006,2026-03-30,Prime News reshapes newsroom personalization roadmap,Prime News shared plans to increase personalized content recommendations across digital properties.,Positive,Medium
+N005,A008,2026-04-25,Visionary AdTech Media signs major retail media partnership,Visionary announced a new retail media partnership that may accelerate data unification and identity expansion priorities.,Positive,High
+N006,A009,2026-04-02,Harbor Publishing reorganizes digital editorial teams,Harbor Publishing is consolidating digital editorial functions as it looks for better performance visibility across titles.,Neutral,Medium
+N007,A010,2026-05-01,Signal Radio adds local sports audio rights,"Signal Radio expanded into local sports audio inventory, creating a stronger case for attribution and audience measurement.",Positive,Medium
+N008,A011,2026-04-18,NorthStar OTT pilots in-app commerce experiences,NorthStar is piloting shoppable streaming experiences that increase urgency around commerce analytics and churn reduction.,Positive,High
+N009,A012,2026-04-10,Lumen Video invests in automated forecasting,Lumen Video announced a planning automation initiative tied to ad inventory forecasting accuracy.,Positive,Medium
+N010,A007,2026-03-24,Metro Entertainment retools ad operations team,Metro Entertainment reorganized its ad operations team to reduce manual campaign setup work.,Neutral,Low
