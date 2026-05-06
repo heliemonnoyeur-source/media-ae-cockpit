@@ -1,0 +1,13 @@
+account_id,account_name,owner,region,segment,vertical,strategic_account,partner_involved,account_tier,renewal_date
+A001,Nova Broadcast Group,Avery Chen,North America,Enterprise,Media,True,True,Tier 1,2026-11-15
+A002,StreamWave Media,Avery Chen,North America,Enterprise,Media,True,False,Tier 1,2026-09-30
+A003,CityBeat Networks,Avery Chen,North America,Enterprise,Media,False,True,Tier 2,2027-01-20
+A004,Apex Sports Network,Avery Chen,North America,Enterprise,Media,True,True,Tier 1,2026-12-10
+A005,Global Podcast Studios,Avery Chen,North America,Mid-Market,Media,False,False,Tier 2,2026-08-18
+A006,Prime News Syndicate,Avery Chen,North America,Enterprise,Media,True,False,Tier 1,2026-10-05
+A007,Metro Entertainment Group,Avery Chen,North America,Enterprise,Media,False,False,Tier 2,2027-03-12
+A008,Visionary AdTech Media,Avery Chen,North America,Enterprise,Media,True,True,Tier 1,2026-07-25
+A009,Harbor Publishing,Avery Chen,North America,Mid-Market,Media,False,False,Tier 3,2027-02-14
+A010,Signal Radio Holdings,Avery Chen,North America,Enterprise,Media,True,False,Tier 2,2026-06-30
+A011,NorthStar OTT,Avery Chen,North America,Enterprise,Media,True,True,Tier 1,2026-09-12
+A012,Lumen Video Collective,Avery Chen,North America,Mid-Market,Media,False,True,Tier 2,2026-12-22

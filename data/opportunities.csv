@@ -1,0 +1,19 @@
+opportunity_id,account_id,opportunity_name,stage,amount,close_date,created_date,status
+O001,A001,Unified Ad Monetization,Discovery,450000,2026-06-28,2026-03-02,Open
+O002,A001,Audience Data Platform,Proposal,1200000,2026-05-29,2026-01-18,Open
+O003,A002,Cross-Channel Attribution,Negotiation,1800000,2026-05-24,2025-12-11,Open
+O004,A002,Streaming Subscriber Analytics,Evaluation,620000,2026-07-15,2026-02-20,Open
+O005,A003,Revenue Forecasting Suite,Discovery,300000,2026-07-30,2026-04-01,Open
+O006,A004,Sponsorship Intelligence,Proposal,950000,2026-06-10,2026-01-27,Open
+O007,A004,Rights Holder Data Cloud,Negotiation,2100000,2026-05-31,2025-11-19,Open
+O008,A005,Podcast Yield Optimization,Prospecting,180000,2026-08-20,2026-04-10,Open
+O009,A006,Breaking News Personalization,Evaluation,560000,2026-07-08,2026-02-08,Open
+O010,A006,Digital Subscription Insights,Closed Won,400000,2026-03-22,2025-10-30,Closed
+O011,A007,Ad Ops Workflow Modernization,Discovery,240000,2026-09-05,2026-03-14,Open
+O012,A008,Retail Media Extension,Negotiation,2500000,2026-05-27,2025-12-06,Open
+O013,A008,Identity Graph Expansion,Proposal,900000,2026-06-21,2026-02-17,Open
+O014,A009,Editorial Performance Hub,Closed Lost,150000,2026-04-15,2025-12-10,Closed
+O015,A010,Radio Network Attribution,Evaluation,680000,2026-06-30,2026-01-25,Open
+O016,A011,OTT Commerce Analytics,Negotiation,1400000,2026-05-26,2025-11-21,Open
+O017,A011,Churn Prediction Workbench,Discovery,350000,2026-08-09,2026-03-11,Open
+O018,A012,Video Inventory Forecasting,Proposal,760000,2026-06-18,2026-02-02,Open

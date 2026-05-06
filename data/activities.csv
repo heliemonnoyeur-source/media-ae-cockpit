@@ -1,0 +1,25 @@
+activity_id,account_id,activity_date,activity_type,summary,owner
+A00101,A001,2026-04-29,Meeting,Reviewed proposal timeline with rev ops lead,Avery Chen
+A00102,A001,2026-04-18,Email,Sent pricing recap and implementation overview,Avery Chen
+A00201,A002,2026-04-16,Meeting,Procurement review with finance and analytics stakeholders,Avery Chen
+A00202,A002,2026-04-03,Call,Confirmed legal redlines and target signature path,Avery Chen
+A00301,A003,2026-05-01,Call,Completed initial discovery on audience forecasting gaps,Avery Chen
+A00302,A003,2026-04-21,Email,Shared media planning benchmark deck,Avery Chen
+A00401,A004,2026-04-11,Meeting,Mutual action plan review with sponsorship analytics team,Avery Chen
+A00402,A004,2026-03-28,Email,Sent executive summary for rights holder data cloud,Avery Chen
+A00501,A005,2026-04-27,Call,Followed up on podcast yield optimization use cases,Avery Chen
+A00502,A005,2026-04-15,Email,Shared discovery agenda with ad sales director,Avery Chen
+A00601,A006,2026-04-24,Meeting,Workshop on newsroom personalization requirements,Avery Chen
+A00602,A006,2026-04-08,Email,Provided subscription analytics customer story,Avery Chen
+A00701,A007,2026-03-29,Call,Reconnected with ad ops leadership on workflow pain points,Avery Chen
+A00702,A007,2026-03-12,Email,Sent recap of modernization opportunities,Avery Chen
+A00801,A008,2026-04-18,Meeting,Reviewed close plan with retail media strategy team,Avery Chen
+A00802,A008,2026-04-01,Call,Aligned with partner on identity graph expansion timeline,Avery Chen
+A00901,A009,2026-02-24,Email,Shared editorial performance benchmark brief,Avery Chen
+A00902,A009,2026-02-10,Call,Checked in on Q2 priorities after closed-lost review,Avery Chen
+A01001,A010,2026-05-03,Meeting,Discovery workshop on attribution and local station insights,Avery Chen
+A01002,A010,2026-04-19,Email,Sent follow-up summary and next steps,Avery Chen
+A01101,A011,2026-04-09,Meeting,Reviewed commercial terms with OTT commerce lead,Avery Chen
+A01102,A011,2026-03-26,Call,Confirmed stakeholder map for churn prediction workbench,Avery Chen
+A01201,A012,2026-04-30,Meeting,Proposal walkthrough with inventory planning team,Avery Chen
+A01202,A012,2026-04-12,Email,Shared business case for forecasting accuracy,Avery Chen
