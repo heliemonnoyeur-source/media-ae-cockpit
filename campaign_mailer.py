@@ -44,10 +44,7 @@ class SMTPConfig:
     security: str
 
 
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Prepare and send personalized campaign emails."
-    )
+def add_common_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--contacts",
         default="data/contacts.csv",
@@ -98,10 +95,20 @@ def parse_args() -> argparse.Namespace:
         help="Delay between emails in send mode.",
     )
 
+
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Prepare and send personalized campaign emails."
+    )
+    common_parent = argparse.ArgumentParser(add_help=False)
+    add_common_arguments(common_parent)
+
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     preview_parser = subparsers.add_parser(
-        "preview", help="Render sample emails without sending."
+        "preview",
+        parents=[common_parent],
+        help="Render sample emails without sending.",
     )
     preview_parser.add_argument(
         "--sample-count",
@@ -111,7 +118,9 @@ def parse_args() -> argparse.Namespace:
     )
 
     send_parser = subparsers.add_parser(
-        "send", help="Send emails through an SMTP server."
+        "send",
+        parents=[common_parent],
+        help="Send emails through an SMTP server.",
     )
     send_parser.add_argument(
         "--dry-run",
@@ -146,7 +155,7 @@ def parse_args() -> argparse.Namespace:
         help="SMTP transport security mode.",
     )
 
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
 def load_contacts(path: str | Path) -> list[Contact]:
@@ -269,7 +278,7 @@ def prepare_messages(
 
     for contact in contacts:
         context = {**shared_context, **contact.render_context()}
-        subject = render_template(subject_template, context)
+        subject = render_template(subject_template, context).strip()
         body = render_template(body_template, context)
         rendered_messages.append((contact, subject, body))
 

@@ -1,6 +1,12 @@
 import unittest
 
-from campaign_mailer import Contact, prepare_messages, render_template, select_contacts
+from campaign_mailer import (
+    Contact,
+    parse_args,
+    prepare_messages,
+    render_template,
+    select_contacts,
+)
 
 
 class CampaignMailerTests(unittest.TestCase):
@@ -45,6 +51,29 @@ class CampaignMailerTests(unittest.TestCase):
         _, subject, body = prepared[0]
         self.assertEqual(subject, "Sujet pour Lea")
         self.assertIn("Studio Nova", body)
+
+    def test_prepare_messages_strips_subject_whitespace(self):
+        contact = Contact(2, "hello@example.com", {"email": "hello@example.com", "name": "Lea"})
+
+        prepared = prepare_messages([contact], "Sujet pour {{ name }}\n", "Bonjour {{ name }}")
+
+        _, subject, _ = prepared[0]
+        self.assertEqual(subject, "Sujet pour Lea")
+
+    def test_parse_args_accepts_common_options_after_subcommand(self):
+        args = parse_args(
+            [
+                "preview",
+                "--contacts",
+                "data/contacts.csv",
+                "--context",
+                "sender_name=Alex",
+            ]
+        )
+
+        self.assertEqual(args.command, "preview")
+        self.assertEqual(args.contacts, "data/contacts.csv")
+        self.assertEqual(args.context, ["sender_name=Alex"])
 
 
 if __name__ == "__main__":
