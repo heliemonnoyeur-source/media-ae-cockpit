@@ -1,0 +1,8 @@
+Bonjour {{ name }},
+
+Je vous contacte au sujet de {{ company }} pour proposer une collaboration media autour de {{ angle }}.
+
+Si le sujet vous interesse, je peux vous envoyer un kit presse, des visuels et quelques disponibilites pour un echange rapide.
+
+Bien a vous,
+{{ sender_name }}
