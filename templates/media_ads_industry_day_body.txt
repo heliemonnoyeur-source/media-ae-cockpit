@@ -1,0 +1,19 @@
+Bonjour {{ name }},
+
+Je vous contacte dans le cadre de notre prospection pour {{ event_name }}, qui aura lieu le {{ event_date }} a {{ event_location }}.
+
+Je pense que {{ company }} pourrait etre un bon interlocuteur pour echanger sur {{ interest_area }}.
+
+L'idee serait de vous proposer {{ value_prop }}.
+
+Si le sujet vous interesse, je peux vous envoyer un format tres court avec :
+- les raisons pour lesquelles cet echange peut etre utile a {{ company }}
+- le type de profils que nous cherchons a rencontrer pendant l'evenement
+- quelques disponibilites pour organiser un rendez-vous
+
+Seriez-vous ouvert(e) a un rapide echange ou a recevoir plus de details par email ?
+
+Bien a vous,
+{{ sender_name }}
+{{ sender_role }}
+{{ sender_phone }}
