@@ -1,0 +1,47 @@
+{
+  "name": "media-ae-cockpit",
+  "version": "1.0.0",
+  "description": "Clerk-powered smart sales workflow starter",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heliemonnoyeur-source/media-ae-cockpit.git"
+  },
+  "keywords": [
+    "clerk",
+    "nextjs",
+    "sales-workflow"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.9.0",
+    "npm": ">=10.0.0"
+  },
+  "packageManager": "npm@10.9.7",
+  "bugs": {
+    "url": "https://github.com/heliemonnoyeur-source/media-ae-cockpit/issues"
+  },
+  "homepage": "https://github.com/heliemonnoyeur-source/media-ae-cockpit#readme",
+  "dependencies": {
+    "@clerk/nextjs": "^7.3.4",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.8.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.6",
+    "typescript": "^6.0.3"
+  }
+}
