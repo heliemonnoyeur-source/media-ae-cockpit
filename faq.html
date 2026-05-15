@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media AE Cockpit - FAQ</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background: #0b1020;
+        color: #e5e7eb;
+      }
+
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 3rem 1.25rem;
+      }
+
+      h1 {
+        margin-top: 0;
+        font-size: 2rem;
+      }
+
+      details {
+        background: #111b36;
+        border: 1px solid #273655;
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      summary {
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      p {
+        line-height: 1.6;
+        margin: 0.75rem 0 0.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Frequently Asked Questions</h1>
+      <p>Quick answers for the Media AE Cockpit project.</p>
+
+      <details open>
+        <summary>What is this project for?</summary>
+        <p>
+          Media AE Cockpit is a lightweight workspace to centralize common account
+          executive tasks and project references.
+        </p>
+      </details>
+
+      <details>
+        <summary>How do I view this FAQ locally?</summary>
+        <p>
+          Run a local static server from the repository root and open
+          <code>http://localhost:8000/faq.html</code> in your browser.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I add more questions?</summary>
+        <p>
+          Yes. Add another <code>&lt;details&gt;</code> block in this file for each new
+          question/answer pair.
+        </p>
+      </details>
+    </main>
+  </body>
+</html>
