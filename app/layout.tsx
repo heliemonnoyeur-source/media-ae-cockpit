@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { ClerkProvider, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
 import { auth } from "@clerk/nextjs/server"
+import Link from "next/link"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -19,9 +20,9 @@ export default async function RootLayout({
         <ClerkProvider>
           <div className="page-shell">
             <header className="top-nav">
-              <a className="brand" href="/">
+              <Link className="brand" href="/">
                 Media AE Cockpit
-              </a>
+              </Link>
               <div className="nav-actions">
                 {userId ? (
                   <UserButton />

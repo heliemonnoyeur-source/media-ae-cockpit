@@ -1,10 +1,10 @@
 import { verifyWebhook } from "@clerk/nextjs/webhooks"
 import { handleClerkSalesEvent, getWebhookDebugSnapshot } from "@/lib/webhooks/handlers"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
 const processedWebhookIds = new Set<string>()
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   const webhookId = req.headers.get("svix-id")
   if (!webhookId) {
     return NextResponse.json({ error: "Missing svix-id header." }, { status: 400 })
