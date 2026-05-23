@@ -243,8 +243,8 @@ for tag, tm, title, desc in rows:
 # =============================================================================
 s = add_slide()
 part_divider(s, 1, "GREENFIELD PIPELINE",
-             "Fortune 100\nfrom zero.",
-             "Show how to create momentum. Top 5 ranked, then deep dive into #1 :\n"
+             "Spain & Italy\nfrom zero.",
+             "GTM Iberia + Italie. Top 5 ranked, deep dive sur Santander :\n"
              "account thesis, stakeholder map, entry sequencing, first 90 days.")
 add_text(s, Inches(11.5), Inches(7.05), Inches(1.3), Inches(0.3),
          f"03 / {TOTAL:02d}", size=9, color=TEXT_MUTED,
@@ -256,7 +256,7 @@ add_text(s, Inches(11.5), Inches(7.05), Inches(1.3), Inches(0.3),
 # =============================================================================
 s = add_slide(); page_chrome(s, 4, TOTAL, "Critères de ranking", part=1)
 section_title(s, "Avant le Top 5",
-              "Comment je classe une F100 pour Cursor.",
+              "Comment je classe un compte ENT Spain & Italy.",
               "Cinq lentilles, pondérées. Toute exception = on cherche pourquoi.")
 
 crits = [
@@ -265,7 +265,7 @@ crits = [
     ("02 · AI mandate public",
      "Roadmap IA exécutive annoncée → champion réception facilitée, urgence existante."),
     ("03 · Reg / privacy posture",
-     "Régulés (finance, santé) = Privacy Mode est un enabler, pas un blocker. Notre edge."),
+     "Régulés EU (DORA, EU AI Act, ECB) = Privacy Mode = enabler, pas blocker. Notre edge."),
     ("04 · Codebase complexité",
      "Legacy + modern + mono / multi repo = large codebase performance pertinent."),
     ("05 · Procurement reach",
@@ -286,25 +286,25 @@ for k, v in crits:
 # =============================================================================
 s = add_slide(); page_chrome(s, 5, TOTAL, "Top 5 prospects", part=1)
 section_title(s, "Greenfield · ranked",
-              "Top 5 Fortune 100 pour Cursor.",
-              "Ranking défendable. #1 deep-dive sur la slide suivante.")
+              "Top 5 GTM Spain & Italy.",
+              "Ranking défendable. Santander en #1 → deep-dive sur les 4 slides qui suivent.")
 
 prospects = [
-    ("#1", "JPMorgan Chase",
-     "~56 K ingés · LLM Suite déjà en prod · régulé = Privacy Mode = enabler · path procurement clair.",
-     "Plus gros TAM F100 + champion-ready."),
-    ("#2", "Capital One",
-     "~12 K ingés · culture eng-led, rare en F100 · ChatGPT Enterprise déjà acheté · procurement décisive.",
-     "Vélocité de deal la plus forte."),
-    ("#3", "Walmart (Global Tech)",
-     "~20 K ingés · CTO Suresh Kumar pousse IA hard · ROI math énorme · Sam's + Walmart.com + Bonobos surface.",
-     "Gros TAM, brand-effect F100 retail."),
-    ("#4", "Goldman Sachs",
-     "~12 K ingés · Marquee, Atlas · AI-first messaging (Solomon) · régulé = même wedge que JPM.",
-     "High-velocity tech investment."),
-    ("#5", "Disney (Streaming + Parks)",
-     "~10 K ingés · modernisation Disney+ · eng-driven streaming · brand reference massive.",
-     "Reference customer halo effect."),
+    ("#1", "Santander",
+     "~15–20 K tech · « One Transformation » sous Dirk Marzluf · régulé multi-juridictions · Openbank = wedge digital-native.",
+     "Plus gros TAM Iberia + champion-ready."),
+    ("#2", "BBVA",
+     "~10 K tech · ChatGPT Enterprise déjà déployé org-wide · narrative « born digital » sous Carlos Torres.",
+     "AI-ready buyer, vélocité forte."),
+    ("#3", "Enel",
+     "~15 K tech · transition énergétique = urgence · OpenInnovability AI lab · CISO mature.",
+     "Plus gros TAM Italie."),
+    ("#4", "EssilorLuxottica",
+     "~5–7 K tech / 190 K total · Industry 4.0 + e-commerce push · régulé (medical devices).",
+     "Compte FR/IT, leverage industriel."),
+    ("#5", "El Corte Inglés",
+     "~2–3 K tech · transformation e-commerce + supply chain sous Marta Álvarez · moins de concurrence.",
+     "Moins crowded, deal accessible."),
 ]
 y = Inches(3.55)
 for rk, name, why, edge in prospects:
@@ -324,20 +324,20 @@ for rk, name, why, edge in prospects:
 # =============================================================================
 # 06 — #1 JPMorgan : Account thesis
 # =============================================================================
-s = add_slide(); page_chrome(s, 6, TOTAL, "Deep dive · JPMorgan", part=1)
+s = add_slide(); page_chrome(s, 6, TOTAL, "Deep dive · Santander", part=1)
 section_title(s, "Top prospect · Account thesis",
-              "JPMorgan Chase — why now, where Cursor wins.",
-              "5 angles. Tous ont une preuve publique citable.")
+              "Santander — why now, where Cursor wins.",
+              "4 angles. Tous ont une preuve publique citable (analyst calls, presse Iberia).")
 
 cols = [
-    ("WHY JPM",
-     "~56 K ingés tech.\nLLM Suite (interne) déjà rolled out à\n200 K+ employés en 2024.\nJamie Dimon mentionne l'IA dans\nchaque shareholder letter."),
+    ("WHY SANTANDER",
+     "~15–20 K tech (Santander Global\nT&O + Openbank + Cardinal).\nAna Botín mentionne l'IA à chaque\nresults call.\nPartenariats OpenAI + Google Cloud\nannoncés en 2024."),
     ("WHY NOW",
-     "Pression Mary Erdoes + Daniel Pinto\nsur productivité dev.\nCopilot déployé mais ROI sous-mesuré.\nAuditeurs OCC / Fed regardent les\noutils AI sanctionnés."),
+     "« One Transformation » T&O lancée\n2024 sous Dirk Marzluf.\nBBVA a déployé ChatGPT Enterprise\norg-wide → pression compétitive directe.\nDORA + EU AI Act = urgence\ngouvernance IA."),
     ("LEVIERS CURSOR",
-     "Velocity (Markets Tech).\nGovernance (Privacy Mode pour\ndonnées régulées).\nOnboarding (rotations internes).\nCost (Copilot ne couvre plus le besoin)."),
+     "Velocity (Openbank, digital-native).\nGovernance (Privacy Mode pour\nECB / BoE / Fed).\nOnboarding (rotations 10+ pays).\nCost (réduction IT spend / revenue)."),
     ("FORCES MARCHÉ",
-     "Frontier models évoluent vite —\nmodel neutrality est un argument\nde résilience.\nClaude Code en évaluation chez les\npairs (GS, Citi) → urgence."),
+     "Talent IA cher en Iberia →\noutil = levier hiring & rétention.\nModel neutrality = résilience face à\nl'écosystème EU souverain.\nClaude Code en éval chez les pairs\nEuropéens (ING, BNP)."),
 ]
 xw = Inches(2.95); gap = Inches(0.15)
 x = Inches(0.55)
@@ -354,27 +354,27 @@ for label, body in cols:
 # =============================================================================
 # 07 — JPMorgan : Stakeholder map
 # =============================================================================
-s = add_slide(); page_chrome(s, 7, TOTAL, "JPMorgan · Stakeholders", part=1)
+s = add_slide(); page_chrome(s, 7, TOTAL, "Santander · Stakeholders", part=1)
 section_title(s, "Engineering org map",
               "Qui je cible, dans quel ordre, et pourquoi.",
-              "Power signals : budget, hiring, public statements, sponsorship d'initiatives IA.")
+              "Power signals : budget T&O, hiring T&O Madrid/London, sponsorship d'initiatives IA Botín-niveau.")
 
 stk = [
-    ("01", "Dir / VP Dev Productivity",
-     "Buyer économique des dev tools. Première porte d'entrée.",
-     "LinkedIn → cold email avec ROI one-pager + ref customer."),
-    ("02", "Mariana Lopes / Larry Feinsmith",
-     "Strategic Tech / Innovation. Sponsor possible LLM Suite v2.",
-     "Warm intro via Cursor exec ou customer ref. Conférence (QCon)."),
-    ("03", "AppSec leadership (sous Pat Opet, CISO)",
-     "Gatekeeper. Pas un blocker si Privacy Mode + SOC 2 anticipés.",
-     "On les inclut tôt, on envoie SIG + pentest avant de demander."),
-    ("04", "Lori Beer (Global CIO)",
-     "Exec sponsor. Pas en first touch — on l'engage quand on a un signal.",
-     "Une fois pilote chiffré : board-level ROI + risk reduction story."),
+    ("01", "Openbank CTO + Head of Engineering",
+     "Wedge #1. Filiale digital-native, autonome, procurement plus court.",
+     "Cold + LinkedIn. Message : « pilote 30 j sur 1 squad, métriques pré-définies »."),
+    ("02", "Dir / VP Developer Productivity — Santander T&O",
+     "Buyer économique au niveau Groupe. Porte le budget dev tools.",
+     "Warm intro Madrid tech community + ref customer EU bank si dispo."),
+    ("03", "AppSec leadership (sous le CISO Groupe)",
+     "Gatekeeper. Pas un blocker si Privacy Mode + SOC 2 + DORA-aligned anticipés.",
+     "On les inclut tôt, on envoie SIG + pentest + DPA avant de demander."),
+    ("04", "Dirk Marzluf (Group Head of T&O)",
+     "Exec sponsor. Pas en first touch — on l'engage quand on a un POC chiffré.",
+     "Une fois POC live : board-level ROI + risk reduction story."),
     ("05", "Engineers (bottom-up)",
-     "Adoption shadow = signal Marcel-style. Free tier monitoring.",
-     "On surveille les signups internes, on identifie un champion IC."),
+     "Adoption shadow = signal Marcel-style. Free tier monitoring sur emails Santander.",
+     "On surveille signups, on identifie un staff IC champion à Madrid."),
 ]
 y = Inches(3.55)
 for n, who, why, how in stk:
@@ -393,10 +393,10 @@ for n, who, why, how in stk:
 # =============================================================================
 # 08 — JPMorgan : Entry points & 90 days
 # =============================================================================
-s = add_slide(); page_chrome(s, 8, TOTAL, "JPMorgan · Entry + 90 days", part=1)
+s = add_slide(); page_chrome(s, 8, TOTAL, "Santander · Entry + 90 days", part=1)
 section_title(s, "Pipeline & sequencing",
               "Comment je crée le momentum.",
-              "Outreach multi-canal, séquencé, mesurable. 90 jours pour un POC chiffré.")
+              "Outreach multi-canal, séquencé, mesurable. 90 jours pour un POC Openbank chiffré.")
 
 # left: entry channels
 add_rect(s, Inches(0.55), Inches(3.55), Inches(6.1), Inches(3.55), BG_PANEL)
@@ -404,11 +404,11 @@ add_rect(s, Inches(0.55), Inches(3.55), Inches(6.1), Emu(6350), HAIRLINE)
 add_text(s, Inches(0.85), Inches(3.7), Inches(5.5), Inches(0.4),
          "ENTRY POINTS — séquencés", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 entries = [
-    ("Cold outbound", "Dir DevProd + AppSec, 3 touches/sem, message ROI + 1 ref F100."),
-    ("Warm intro", "Via investor / advisor / customer overlap (Capital One, GS si déjà clients)."),
-    ("Conférence", "QCon NY, AWS re:Invent, Strange Loop — chasser les talks JPM."),
-    ("Bottom-up", "Free tier monitoring → identification d'un champion IC interne."),
-    ("Content", "POV blog : « AI coding in regulated FS » — share organique ciblé."),
+    ("Openbank-first", "Wedge digital-native. Cible Openbank CTO + Head of Eng. Procurement plus court."),
+    ("Cold outbound", "Dir DevProd Santander T&O + AppSec, 3 touches/sem, ROI + ref EU bank."),
+    ("Warm intro", "Madrid tech community (South Summit, Endeavor, Wayra alumni). Petit monde."),
+    ("Conférence", "South Summit Madrid · Money 20/20 Europe · DevOpsCon Madrid."),
+    ("Bottom-up", "Free tier monitoring sur @santander.com → champion IC à Madrid/Boston."),
 ]
 yy = Inches(4.1)
 for k, v in entries:
@@ -424,9 +424,9 @@ add_rect(s, Inches(6.85), Inches(3.55), Inches(5.95), Emu(6350), HAIRLINE)
 add_text(s, Inches(7.15), Inches(3.7), Inches(5.5), Inches(0.4),
          "FIRST 90 DAYS", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 days = [
-    ("J0–J30", "Research deep + 3 cold touches/sem + 1 warm intro vise.\nSuccess : 1 meeting Dir DevProd, 1 meeting AppSec."),
-    ("J30–J60", "Discovery + scoping POC.\nSuccess : POC 20 ingés signé sur Markets Tech ou\nCorporate Sector."),
-    ("J60–J90", "POC live, Privacy Mode + audit baked-in.\nSuccess : cycle-time + PR + NPS mesurés.\nReady for procurement conversation."),
+    ("J0–J30", "Research Openbank + Santander T&O.\n3 cold touches/sem + 1 warm intro Madrid.\nSuccess : 1 mtg Openbank CTO, 1 mtg AppSec."),
+    ("J30–J60", "Discovery Openbank + parallel intro T&O.\nSuccess : POC 20–30 ingés signé sur 1 squad\nOpenbank (mobile ou backend)."),
+    ("J60–J90", "POC live, Privacy Mode mandaté + DORA-aligned.\nSuccess : cycle-time + PR + NPS mesurés.\nOuvre conversation Groupe T&O sur 1 K+ seats."),
 ]
 yy = Inches(4.1)
 for k, v in days:
@@ -440,20 +440,20 @@ for k, v in days:
 # =============================================================================
 # 09 — JPMorgan : Pilot motion
 # =============================================================================
-s = add_slide(); page_chrome(s, 9, TOTAL, "JPMorgan · Pilot motion", part=1)
-section_title(s, "Initial pilot motion",
+s = add_slide(); page_chrome(s, 9, TOTAL, "Santander · Pilot motion", part=1)
+section_title(s, "Initial pilot motion · Openbank wedge",
               "À quoi ressemble le POC chiffré.",
-              "Scope serré, métriques pré-définies, security baked-in, sortie de POC = procurement-ready.")
+              "Openbank = path of least resistance. Success ici ouvre la conversation Groupe T&O sur 1 K+ seats.")
 
 cols = [
     ("SCOPE",
-     "20 ingés Markets Tech (high agentic\nrelevance, multi-repo, complexité élevée).\n30 jours.\n1 repo de référence + 1 service annexe."),
+     "20–30 ingés Openbank (digital-native,\nstack moderne, vélocité élevée).\n30 jours.\n1 squad mobile ou backend, 1 repo de\nréférence."),
     ("MÉTRIQUES",
      "Cycle time (PR opened → merged)\nPR throughput / ingé / semaine\nSenior IC adoption rate\nNPS engagement à J+15 et J+30."),
     ("SECURITY DAY 1",
-     "Privacy Mode obligatoire.\nSOC 2 + SIG envoyés J-7.\nAppSec dans loop dès le scoping.\nPath audit logs validé avant le go-live."),
+     "Privacy Mode obligatoire.\nSOC 2 + SIG envoyés J-7.\nDORA-aligned : audit logs, data\nresidency EU validés.\nAppSec Groupe dans la loop dès J0."),
     ("EXIT GATE",
-     "Cycle-time ↓ ≥ 12 %\nNPS ≥ 50\nSenior IC adoption ≥ 60 %\n→ ouvre la conversation procurement\nsur 500–1 000 seats."),
+     "Cycle-time ↓ ≥ 12 %\nNPS ≥ 50\nSenior IC adoption ≥ 60 %\n→ ouvre Groupe T&O sur Santander\nGlobal Tech : 1 000–5 000 seats."),
 ]
 xw = Inches(2.95); gap = Inches(0.15)
 x = Inches(0.55)
