@@ -32,6 +32,7 @@ Rendu PDF + PNG du deck `decks/Cursor_x_Figma_Discovery_20min.pptx`.
 | 14 | Objection CISO |
 | 15 | Close — two tracks |
 | 16 | Rappels tactiques |
+| 17 | Meta — ce qui est évalué (candidate-only) |
 
 ## Regénérer
 

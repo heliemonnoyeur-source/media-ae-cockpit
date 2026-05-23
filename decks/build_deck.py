@@ -2,44 +2,53 @@
 Cursor x Figma — Discovery CTO/CISO (20 min)
 Génère un deck .pptx au look & feel Cursor (dark, minimal, moderne).
 
-Le template officiel Cursor n'étant pas disponible dans ce workspace,
-on recrée la charte: fond #0A0A0A, texte blanc, accent #A0A0A0 / #E5E5E5,
-typographies sans-serif système (Inter à défaut), grille aérée 16:9.
+V2 — affiné après lecture du « 2026 Cursor GTM Discovery / Deal Review
+Interview Prep ». Ce qui change :
+
+- Positionnement officiel Cursor utilisé tel quel
+  (« workflow, context, execution » + « ~70% Fortune 1000 »).
+- Why Change refait : Copilot ET Claude Code (2026 = Claude Code = compétiteur #1).
+- Why Cursor refait sur les 4 différenciateurs officiels :
+  Model neutrality · Large codebase performance · Time to value · Platform.
+- Privacy Mode décrit avec les 3 bullets exacts du doc.
+- Pain numbers softés (rubrique « no overconfident claims »).
+- Discovery CTO Q3 reformulée pour pressure-test l'urgence.
+- Rappels tactiques recadrés sur la grille d'évaluation Cursor.
+- Slide 17 ajoutée : meta-rubrique candidate-only.
+
+Le template officiel Cursor n'est pas dans le repo : on recrée la charte
+(fond #0A0A0A, texte blanc, accents discrets, sans-serif, grille 16:9).
 """
 
 from pptx import Presentation
 from pptx.util import Inches, Pt, Emu
-# (fallback import removed)
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
-from pptx.oxml.ns import qn
-from lxml import etree
+from pptx.dml.color import RGBColor
 
-# python-pptx exposes RGBColor at pptx.dml.color
-from pptx.dml.color import RGBColor  # noqa: F811
 
 # ---------------------------------------------------------------------------
 # Charte
 # ---------------------------------------------------------------------------
-BG          = RGBColor(0x0A, 0x0A, 0x0A)   # near-black
-BG_PANEL    = RGBColor(0x14, 0x14, 0x14)   # subtle panel
-HAIRLINE    = RGBColor(0x2A, 0x2A, 0x2A)   # dividers
-TEXT        = RGBColor(0xF5, 0xF5, 0xF5)   # primary text
-TEXT_DIM    = RGBColor(0xA0, 0xA0, 0xA0)   # secondary
-TEXT_MUTED  = RGBColor(0x6B, 0x6B, 0x6B)   # tertiary / labels
-ACCENT      = RGBColor(0xFF, 0xFF, 0xFF)   # Cursor accents are usually monochrome
+BG          = RGBColor(0x0A, 0x0A, 0x0A)
+BG_PANEL    = RGBColor(0x14, 0x14, 0x14)
+HAIRLINE    = RGBColor(0x2A, 0x2A, 0x2A)
+TEXT        = RGBColor(0xF5, 0xF5, 0xF5)
+TEXT_DIM    = RGBColor(0xA0, 0xA0, 0xA0)
+TEXT_MUTED  = RGBColor(0x6B, 0x6B, 0x6B)
+ACCENT      = RGBColor(0xFF, 0xFF, 0xFF)
 ACCENT_SOFT = RGBColor(0xE5, 0xE5, 0xE5)
 
-FONT = "Inter"          # tombe sur Helvetica / Arial si indispo
+FONT = "Inter"
 FONT_MONO = "JetBrains Mono"
 
-# 16:9
 prs = Presentation()
 prs.slide_width  = Inches(13.333)
 prs.slide_height = Inches(7.5)
 
 SW, SH = prs.slide_width, prs.slide_height
 BLANK = prs.slide_layouts[6]
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -58,7 +67,7 @@ def add_slide():
 def add_text(slide, x, y, w, h, text, *,
              size=18, bold=False, color=TEXT, font=FONT,
              align=PP_ALIGN.LEFT, anchor=MSO_ANCHOR.TOP,
-             line_spacing=1.15, letter_spacing=None):
+             line_spacing=1.15, letter_spacing=None, italic=False):
     tb = slide.shapes.add_textbox(x, y, w, h)
     tf = tb.text_frame
     tf.word_wrap = True
@@ -76,9 +85,9 @@ def add_text(slide, x, y, w, h, text, *,
         r.font.name = font
         r.font.size = Pt(size)
         r.font.bold = bold
+        r.font.italic = italic
         r.font.color.rgb = color
         if letter_spacing is not None:
-            # tracking via XML (spc in 1/100 pt)
             rPr = r._r.get_or_add_rPr()
             rPr.set("spc", str(letter_spacing))
     return tb
@@ -98,27 +107,22 @@ def add_rect(slide, x, y, w, h, color, line=False):
 
 
 def add_hairline(slide, x, y, w):
-    return add_rect(slide, x, y, w, Emu(6350), HAIRLINE)  # ~0.5pt
+    return add_rect(slide, x, y, w, Emu(6350), HAIRLINE)
 
 
 def page_chrome(slide, page_num, total, section_label):
-    # top-left wordmark
     add_text(slide, Inches(0.55), Inches(0.35), Inches(3), Inches(0.4),
              "● cursor", size=11, color=TEXT, bold=True, letter_spacing=20)
-    # top-right section
     add_text(slide, Inches(9.5), Inches(0.35), Inches(3.3), Inches(0.4),
              section_label.upper(), size=9, color=TEXT_MUTED,
              align=PP_ALIGN.RIGHT, letter_spacing=200)
-    # bottom-left meta
     add_text(slide, Inches(0.55), Inches(7.05), Inches(6), Inches(0.3),
              "Cursor × Figma  ·  Discovery CTO / CISO  ·  20 min",
              size=9, color=TEXT_MUTED, letter_spacing=80)
-    # bottom-right page number
     add_text(slide, Inches(11.5), Inches(7.05), Inches(1.3), Inches(0.3),
              f"{page_num:02d} / {total:02d}",
              size=9, color=TEXT_MUTED, align=PP_ALIGN.RIGHT,
              font=FONT_MONO, letter_spacing=50)
-    # hairline under header
     add_hairline(slide, Inches(0.55), Inches(0.85), Inches(12.25))
 
 
@@ -128,7 +132,7 @@ def section_title(slide, kicker, title, subtitle=None):
     add_text(slide, Inches(0.55), Inches(1.65), Inches(12), Inches(1.2),
              title, size=36, bold=True, color=TEXT, line_spacing=1.05)
     if subtitle:
-        add_text(slide, Inches(0.55), Inches(2.85), Inches(12), Inches(0.6),
+        add_text(slide, Inches(0.55), Inches(2.85), Inches(12), Inches(0.7),
                  subtitle, size=15, color=TEXT_DIM, line_spacing=1.3)
 
 
@@ -136,13 +140,11 @@ def section_title(slide, kicker, title, subtitle=None):
 # Slides
 # ---------------------------------------------------------------------------
 
-TOTAL = 16  # mis à jour à la main
+TOTAL = 17
 
 # --- 01 — Cover ---------------------------------------------------------------
 s = add_slide()
-# subtle panel à droite
 add_rect(s, Inches(8.2), 0, Inches(5.13), SH, BG_PANEL)
-# vertical hairline
 add_rect(s, Inches(8.2), 0, Emu(6350), SH, HAIRLINE)
 
 add_text(s, Inches(0.55), Inches(0.55), Inches(3), Inches(0.4),
@@ -155,27 +157,28 @@ add_text(s, Inches(0.55), Inches(2.85), Inches(8.5), Inches(2.5),
          "Cursor × Figma\nCTO & CISO.",
          size=54, bold=True, color=TEXT, line_spacing=1.02)
 
-add_text(s, Inches(0.55), Inches(5.1), Inches(7.5), Inches(1),
-         "Plan de l'appel, questions de découverte,\nthèse Why Now / Why Change / Why Cursor.",
-         size=16, color=TEXT_DIM, line_spacing=1.4)
+add_text(s, Inches(0.55), Inches(5.1), Inches(7.5), Inches(1.3),
+         "Cursor wins on workflow, context, and execution.\n"
+         "~70 % des Fortune 1000 l'utilisent déjà.",
+         size=15, color=TEXT_DIM, line_spacing=1.4, italic=True)
 
-# right panel: meta block
 add_text(s, Inches(8.6), Inches(2.4), Inches(4), Inches(0.4),
          "OBJECTIFS", size=10, color=TEXT_MUTED, letter_spacing=300)
 add_text(s, Inches(8.6), Inches(2.8), Inches(4.5), Inches(3),
-         "→  Earn a technical deep dive\n→  Earn a security review\n→  Ne pas pitcher — qualifier",
+         "→  Lead with discovery, not pitch\n→  Earn a technical deep dive\n→  Earn a security review",
          size=14, color=TEXT, line_spacing=1.7)
 
 add_text(s, Inches(8.6), Inches(5.4), Inches(4), Inches(0.4),
-         "DATE", size=10, color=TEXT_MUTED, letter_spacing=300)
-add_text(s, Inches(8.6), Inches(5.75), Inches(4), Inches(0.4),
-         "—", size=14, color=TEXT)
+         "POSTURE", size=10, color=TEXT_MUTED, letter_spacing=300)
+add_text(s, Inches(8.6), Inches(5.75), Inches(4.5), Inches(0.9),
+         "Opinionated, not scripted.\nGround claims, no AI hype.",
+         size=13, color=TEXT, line_spacing=1.4)
 
 add_text(s, Inches(0.55), Inches(7.05), Inches(8), Inches(0.3),
          "Confidential — Internal prep document",
          size=9, color=TEXT_MUTED, letter_spacing=80)
 add_text(s, Inches(11.5), Inches(7.05), Inches(1.3), Inches(0.3),
-         "01 / " + f"{TOTAL:02d}", size=9, color=TEXT_MUTED,
+         f"01 / {TOTAL:02d}", size=9, color=TEXT_MUTED,
          align=PP_ALIGN.RIGHT, font=FONT_MONO)
 
 
@@ -239,7 +242,6 @@ section_title(s, "Deux acheteurs, deux grilles de lecture",
               "CTO ≠ CISO.",
               "Ils n'évaluent pas le même produit. Adapter à la phrase près.")
 
-# 2 colonnes
 def persona(x, label, title, rows):
     add_rect(s, x, Inches(3.5), Inches(6.1), Inches(3.55), BG_PANEL)
     add_rect(s, x, Inches(3.5), Inches(6.1), Emu(6350), HAIRLINE)
@@ -307,9 +309,9 @@ qs = [
     ("02", "Plafond à 12 mois",
      "« Le gap entre le meilleur outil IA dev et le médian — il s'élargit ou se compresse sur 12 mois ? »",
      "→ S'élargit = on a gagné l'argument Why Change."),
-    ("03", "Où ça fait mal",
-     "« Quelle étape du SDLC l'IA devrait aider mais n'aide pas — review, refactos, onboarding, tests, incidents ? »",
-     "→ Refactos / large-context = sweet spot Cursor."),
+    ("03", "Pressure-test urgence",
+     "« Pourquoi vous regardez ça maintenant plutôt qu'au prochain renouvellement Copilot ? Qu'est-ce qui a changé ce trimestre ? »",
+     "→ Pas de réponse claire = l'urgence est faible, on calibre les next steps."),
     ("04", "Signal org",
      "« Les seniors et juniors utilisent-ils l'IA pareil ? Y a-t-il un tier qui a discrètement abandonné ? »",
      "→ Senior IC opt-out = signal très fort, pitch atterrit dur."),
@@ -394,86 +396,102 @@ for i, (k, body) in enumerate(cards):
              body, size=11.5, color=TEXT, line_spacing=1.4)
 
 
-# --- 09 — Why change ---------------------------------------------------------
+# --- 09 — Why change · paysage compétitif ------------------------------------
 s = add_slide(); page_chrome(s, 9, TOTAL, "Thèse · Why change")
-section_title(s, "Pourquoi changer (du sortant — quasi sûrement Copilot)",
-              "Un gap qualité, pas une bataille de marque.",
-              "On ne descend pas Copilot. On nomme ce qui mange les journées des seniors.")
+section_title(s, "Le paysage 2026",
+              "Copilot et Claude Code, deux conversations différentes.",
+              "On ne descend personne. On nomme ce que Cursor applique mieux.")
 
-bullets = [
-    ("Le travail qui coûte cher",
-     "Refactos multi-fichiers, navigation d'un service inconnu, repro de bug, "
-     "tests manquants. C'est là que le gap est le plus large — et il s'est "
-     "élargi sur 9 mois, pas refermé."),
-    ("Senior IC opt-out",
-     "Pattern récurrent : quand vos meilleurs ingés n'utilisent pas l'outil, "
-     "le plafond ROI org est ~5 %. Quand ils l'utilisent, c'est 20–30 %."),
-    ("Coût du sur-place",
-     "Chaque mois passé sur un outil plafonné = patterns internes qui se figent "
-     "autour de ses limites. Le switch devient plus cher, pas moins cher."),
-]
+# Two competitor framings side by side
+def competitor(x, label, title, lines):
+    add_rect(s, x, Inches(3.6), Inches(6.1), Inches(3.5), BG_PANEL)
+    add_rect(s, x, Inches(3.6), Inches(6.1), Emu(6350), HAIRLINE)
+    add_text(s, x + Inches(0.3), Inches(3.75), Inches(5.5), Inches(0.4),
+             label, size=10, color=TEXT_MUTED, letter_spacing=300)
+    add_text(s, x + Inches(0.3), Inches(4.1), Inches(5.5), Inches(0.5),
+             title, size=18, bold=True, color=TEXT)
+    yy = Inches(4.75)
+    for left, right in lines:
+        add_text(s, x + Inches(0.3), yy, Inches(2.4), Inches(0.4),
+                 left, size=11, color=TEXT_DIM)
+        add_text(s, x + Inches(2.65), yy, Inches(0.3), Inches(0.4),
+                 "→", size=11, color=TEXT_MUTED)
+        add_text(s, x + Inches(3.0), yy, Inches(2.9), Inches(0.4),
+                 right, size=11, color=TEXT, bold=True)
+        yy += Inches(0.42)
 
-y = Inches(3.7)
-for k, v in bullets:
-    add_text(s, Inches(0.55), y, Inches(0.4), Inches(0.4),
-             "→", size=18, color=TEXT_MUTED)
-    add_text(s, Inches(1.05), y, Inches(4.0), Inches(0.4),
-             k, size=15, bold=True, color=TEXT)
-    add_text(s, Inches(5.2), y, Inches(7.6), Inches(1.0),
-             v, size=12.5, color=TEXT_DIM, line_spacing=1.45)
-    add_hairline(s, Inches(0.55), y + Inches(1.1), Inches(12.25))
-    y += Inches(1.2)
+competitor(Inches(0.55), "VS GITHUB COPILOT", "Du snippet à la tâche", [
+    ("Snippet help",          "Task completion"),
+    ("Local suggestions",     "Codebase context"),
+    ("Isolated assistance",   "Workflow support"),
+    ("Point solution",        "Integrated platform"),
+])
+
+competitor(Inches(6.75), "VS CLAUDE CODE", "Le compétiteur #1 en 2026", [
+    ("Single-provider",       "Model neutrality"),
+    ("Raw model wrapper",     "Workflow integration"),
+    ("Limited repo context",  "Large codebase performance"),
+    ("DIY setup",             "Faster time to value"),
+])
+
+add_text(s, Inches(0.55), Inches(7.18 - 0.13), Inches(12), Inches(0.3),
+         "L'edge n'est pas une intelligence exclusive — c'est l'intelligence appliquée plus "
+         "efficacement aux workflows d'ingénierie réels.",
+         size=10.5, color=ACCENT_SOFT, letter_spacing=20, italic=True)
 
 
-# --- 10 — Why Cursor ---------------------------------------------------------
+# --- 10 — Why Cursor · 4 différenciateurs officiels --------------------------
 s = add_slide(); page_chrome(s, 10, TOTAL, "Thèse · Why Cursor")
-section_title(s, "Trois claims tranchants",
+section_title(s, "Les 4 différenciateurs",
               "Why Cursor.",
-              "Pas de feature dump. Trois affirmations, défendables sous le feu.")
+              "Workflow · Context · Execution. Tout part de là.")
 
 claims = [
-    ("01", "Capacité",
-     "Cursor est conçu pour le travail full-repo et agentique — exactement\n"
-     "là où se joue la prochaine année de gains de productivité."),
-    ("02", "Choix + futur-proof",
-     "Les modèles frontières s'échangent à mesure qu'ils sortent.\n"
-     "Pas de lock-in sur la roadmap d'un seul provider."),
-    ("03", "Trust enterprise",
-     "SOC 2 Type II, ISO 27001, Privacy Mode (zero data retention),\n"
-     "no training on your code, SAML/SCIM, audit logs."),
+    ("01", "Model neutrality",
+     "Flexibilité, pas de lock-in. Le meilleur modèle change tout le temps — "
+     "Cursor donne accès au SOTA sans forcer à quitter une plateforme."),
+    ("02", "Large codebase performance",
+     "Pas juste un wrapper de modèle. Semantic search, indexing, "
+     "retrieval — d'autant plus déterminant que le repo est gros et messy."),
+    ("03", "Faster time to value",
+     "Marche out of the box. Les équipes standardisent vite ; les power users "
+     "vont profond, mais le baseline est déjà fort."),
+    ("04", "Platform, not just a tool",
+     "Couvre tout le SDLC — plan, write, review, debug, iterate. L'intelligence "
+     "est appliquée là où les devs travaillent vraiment."),
 ]
-y = Inches(3.7)
+y = Inches(3.65)
 for n, k, body in claims:
-    add_rect(s, Inches(0.55), y, Inches(12.25), Inches(1.05), BG_PANEL)
+    add_rect(s, Inches(0.55), y, Inches(12.25), Inches(0.78), BG_PANEL)
     add_rect(s, Inches(0.55), y, Inches(12.25), Emu(6350), HAIRLINE)
-    add_text(s, Inches(0.85), y + Inches(0.2), Inches(0.6), Inches(0.6),
-             n, size=22, color=TEXT_MUTED, font=FONT_MONO)
-    add_text(s, Inches(1.85), y + Inches(0.2), Inches(2.5), Inches(0.5),
-             k, size=16, bold=True, color=TEXT)
-    add_text(s, Inches(4.6), y + Inches(0.2), Inches(8.2), Inches(0.8),
-             body, size=12, color=TEXT_DIM, line_spacing=1.4)
-    y += Inches(1.15)
+    add_text(s, Inches(0.85), y + Inches(0.15), Inches(0.6), Inches(0.5),
+             n, size=18, color=TEXT_MUTED, font=FONT_MONO)
+    add_text(s, Inches(1.75), y + Inches(0.15), Inches(3.5), Inches(0.5),
+             k, size=15, bold=True, color=TEXT)
+    add_text(s, Inches(5.45), y + Inches(0.18), Inches(7.3), Inches(0.55),
+             body, size=11.5, color=TEXT_DIM, line_spacing=1.35)
+    y += Inches(0.85)
 
 
 # --- 11 — Pain numbers · productivité ----------------------------------------
 s = add_slide(); page_chrome(s, 11, TOTAL, "Pain numbers · Productivité")
-section_title(s, "Repères à mémoriser",
+section_title(s, "Repères à manier avec précaution",
               "Les chiffres qui débloquent le CTO.",
-              "Toujours formuler : « ce qu'on voit chez des clients de votre taille »,\njamais comme une vérité universelle.")
+              "Toujours : « ce qu'on voit chez des clients de votre taille ».\nJamais une vérité universelle — pas d'AI hype.")
 
 stats = [
-    ("30–40 %", "du temps des seniors passé à\nlire / naviguer du code\nqu'ils n'ont pas écrit."),
+    ("~70 %",   "des Fortune 1000\nutilisent Cursor.\n(positionnement officiel)"),
     ("15–25 %", "réduction cycle-time chez les\norgs IA-adoptantes — au-dessus\nde 60 % d'usage hebdo seniors."),
     ("10–15 %", "du temps eng = PR review,\nplus gros sink après coding.\nCompressible nettement."),
-    ("≤ 35 %",  "des suggestions multi-lignes\nacceptées chez les outils\ncomplétion-only. Inversé en agentique."),
+    ("Senior IC", "opt-out = signal #1.\nQuand les meilleurs n'utilisent pas,\nplafond ROI org ≈ 5 %."),
 ]
 x = Inches(0.55)
 for big, body in stats:
     add_rect(s, x, Inches(4.1), Inches(2.95), Inches(2.6), BG_PANEL)
     add_rect(s, x, Inches(4.1), Inches(2.95), Emu(6350), HAIRLINE)
     add_text(s, x + Inches(0.3), Inches(4.3), Inches(2.6), Inches(0.9),
-             big, size=34, bold=True, color=TEXT, letter_spacing=-20)
-    add_text(s, x + Inches(0.3), Inches(5.25), Inches(2.6), Inches(1.4),
+             big, size=32, bold=True, color=TEXT, letter_spacing=-20)
+    add_text(s, x + Inches(0.3), Inches(5.3), Inches(2.6), Inches(1.4),
              body, size=11.5, color=TEXT_DIM, line_spacing=1.4)
     x += Inches(3.1)
 
@@ -481,10 +499,9 @@ for big, body in stats:
 # --- 12 — ROI math (live) -----------------------------------------------------
 s = add_slide(); page_chrome(s, 12, TOTAL, "ROI · à faire en live")
 section_title(s, "Le calcul à projeter à l'écran",
-              "ROI : capter 5 % ou 50 % de l'upside ?",
+              "Modèle, pas promesse.",
               "Demander à Figma de corriger N. La correction = engagement.")
 
-# left: formula
 add_rect(s, Inches(0.55), Inches(3.7), Inches(7.0), Inches(3.2), BG_PANEL)
 add_rect(s, Inches(0.55), Inches(3.7), Inches(7.0), Emu(6350), HAIRLINE)
 add_text(s, Inches(0.85), Inches(3.85), Inches(6), Inches(0.4),
@@ -497,7 +514,6 @@ add_text(s, Inches(0.85), Inches(4.25), Inches(6.4), Inches(2.5),
          "Capacité réclamée  =  N × C × T",
          size=13, color=TEXT, font=FONT_MONO, line_spacing=1.55)
 
-# right: numbers
 add_rect(s, Inches(7.85), Inches(3.7), Inches(4.95), Inches(3.2), BG_PANEL)
 add_rect(s, Inches(7.85), Inches(3.7), Inches(4.95), Emu(6350), HAIRLINE)
 add_text(s, Inches(8.15), Inches(3.85), Inches(4), Inches(0.4),
@@ -513,7 +529,7 @@ add_text(s, Inches(8.15), Inches(5.15), Inches(4.5), Inches(1.5),
 add_text(s, Inches(0.55), Inches(7.05 - 0.2), Inches(12), Inches(0.3),
          "PHRASE À DIRE  —  « La question n'est pas si l'outil se paye. C'est si vous "
          "captez 5 % ou 50 % de l'upside — fonction du choix de plateforme et du rollout. »",
-         size=10.5, color=ACCENT_SOFT, letter_spacing=20)
+         size=10.5, color=ACCENT_SOFT, letter_spacing=20, italic=True)
 
 
 # --- 13 — Pain numbers · sécurité --------------------------------------------
@@ -539,34 +555,36 @@ for big, body in stats:
     x += Inches(3.1)
 
 
-# --- 14 — Objection CISO -----------------------------------------------------
+# --- 14 — Objection CISO · Privacy Mode --------------------------------------
 s = add_slide(); page_chrome(s, 14, TOTAL, "Objection · CISO")
 section_title(s, "Minute 14 — je la pose moi-même",
               "« Encore un vendor avec notre code. »",
-              "Trois réponses préparées. Aucune n'est une feature, toutes sont contractuelles.")
+              "Privacy Mode + SOC 2. Trois bullets exacts, pas de feature dump.")
 
 items = [
-    ("01", "Zero training",
-     "Votre code n'entraîne aucun modèle — ni le nôtre, ni celui des providers. "
-     "C'est contractuel, pas un toggle."),
-    ("02", "Privacy Mode + ZDR",
-     "Prompts et completions peuvent ne pas persister sur notre infrastructure. "
-     "On déroule à votre équipe ce qui est loggé et ce qui ne l'est pas."),
-    ("03", "Contrôles enterprise",
-     "SOC 2 Type II · ISO 27001 · SAML SSO · SCIM · export audit logs · "
-     "policies par équipe. Call security ↔ security sous 7 jours, "
-     "SIG + résumé pentest envoyés en amont."),
+    ("01", "Code non-stocké",
+     "Customer code is not stored or retained — c'est contractuel, "
+     "pas un toggle. Le code n'atterrit pas sur nos disques."),
+    ("02", "Pas d'entraînement",
+     "Code is not used to train models — ni les nôtres, ni ceux "
+     "des providers tiers. Garantie contractuelle."),
+    ("03", "Requêtes éphémères",
+     "Requests are isolated and ephemeral — pas de log persistant "
+     "des prompts ni des completions en mode privé."),
+    ("04", "Enterprise readiness",
+     "SOC 2 · contrôles admin · visibilité · SSO. Call security ↔ "
+     "security sous 7 jours, avec SIG + pentest en amont."),
 ]
-y = Inches(3.7)
+y = Inches(3.65)
 for n, k, body in items:
     add_text(s, Inches(0.55), y, Inches(0.7), Inches(0.5),
-             n, size=18, color=TEXT_MUTED, font=FONT_MONO)
-    add_text(s, Inches(1.5), y, Inches(3.5), Inches(0.5),
-             k, size=15, bold=True, color=TEXT)
-    add_text(s, Inches(5.2), y, Inches(7.6), Inches(1.0),
-             body, size=12.5, color=TEXT_DIM, line_spacing=1.45)
-    add_hairline(s, Inches(0.55), y + Inches(1.05), Inches(12.25))
-    y += Inches(1.15)
+             n, size=16, color=TEXT_MUTED, font=FONT_MONO)
+    add_text(s, Inches(1.4), y, Inches(3.5), Inches(0.5),
+             k, size=14, bold=True, color=TEXT)
+    add_text(s, Inches(5.2), y, Inches(7.6), Inches(0.8),
+             body, size=12, color=TEXT_DIM, line_spacing=1.4)
+    add_hairline(s, Inches(0.55), y + Inches(0.78), Inches(12.25))
+    y += Inches(0.85)
 
 
 # --- 15 — Close · two tracks --------------------------------------------------
@@ -575,7 +593,6 @@ section_title(s, "17:00 — la sortie",
               "Deux tracks parallèles, jamais « un pilote ».",
               "Aucun des deux personas n'est le bottleneck de l'autre.")
 
-# two columns
 def track(x, label, title, body, target):
     add_rect(s, x, Inches(3.6), Inches(6.1), Inches(3.4), BG_PANEL)
     add_rect(s, x, Inches(3.6), Inches(6.1), Emu(6350), HAIRLINE)
@@ -606,38 +623,79 @@ track(Inches(6.75), "TRACK 2", "Sécurité",
 add_text(s, Inches(0.55), Inches(7.05 - 0.2), Inches(12), Inches(0.3),
          "PHRASE À DIRE  —  « Vous pouvez me mettre en contact avec la bonne personne "
          "sur chaque track cette semaine ? »  Puis se taire.",
-         size=10.5, color=ACCENT_SOFT, letter_spacing=20)
+         size=10.5, color=ACCENT_SOFT, letter_spacing=20, italic=True)
 
 
 # --- 16 — Rappels tactiques ---------------------------------------------------
 s = add_slide(); page_chrome(s, 16, TOTAL, "Rappels tactiques")
-section_title(s, "À garder en tête",
+section_title(s, "À garder en tête sur le call",
               "Le détail qui fait gagner.",
               "Petites choses, gros impact sur l'issue de l'appel.")
 
 tips = [
-    ("Pré-envoyer  ·  rien de lourd",
-     "Email de 2 lignes max — agenda. On garde les artefacts pour le screen-share."),
-    ("Citer 2–3 pairs",
-     "Mêmes taille + stack, en clients enterprise Cursor. UN qui a résolu pile l'objection sécurité du CISO."),
-    ("Regarder l'horloge visiblement",
-     "À 17:00 — « je veux respecter votre temps, passons aux next steps. » Discipline = crédibilité."),
-    ("Followup < 2 h",
-     "Pas 24. Un paragraphe par persona. On reprend ce qu'ILS ont dit, pas ce qu'on a dit."),
-    ("Senior IC opt-out",
-     "Si ça sort en discovery — épingler l'info, c'est le wedge le plus puissant pour le pilote."),
+    ("Lead with discovery, not pitch",
+     "60 % du temps c'est eux qui parlent. On poursuit la compréhension avant l'opinion."),
+    ("Opinionated, not scripted",
+     "Avoir un point de vue. Reconnaître les tradeoffs vs Copilot et Claude Code."),
+    ("Pressure-test l'urgence",
+     "« Pourquoi maintenant, pas dans 6 mois ? » Si pas de réponse claire = pas de deal."),
+    ("Adjust par persona",
+     "CTO = vélocité et talent. CISO = privacy mode + SOC 2. Pas la même histoire."),
+    ("Customer stories > AI hype",
+     "Citer des pairs (Fortune 1000, ~70 %) plutôt que des claims génériques."),
     ("Silence > comblement",
      "Compter 3 secondes après chaque question. Le premier qui parle perd."),
 ]
-y = Inches(3.7); x_cols = [Inches(0.55), Inches(6.95)]
+y = Inches(3.65); x_cols = [Inches(0.55), Inches(6.95)]
 for i, (k, v) in enumerate(tips):
     x = x_cols[i % 2]
-    yy = y + (i // 2) * Inches(1.05)
+    yy = y + (i // 2) * Inches(1.1)
     add_text(s, x, yy, Inches(0.3), Inches(0.4), "→", size=16, color=TEXT_MUTED)
     add_text(s, x + Inches(0.35), yy, Inches(5.7), Inches(0.4),
              k, size=13, bold=True, color=TEXT)
-    add_text(s, x + Inches(0.35), yy + Inches(0.4), Inches(5.7), Inches(0.6),
+    add_text(s, x + Inches(0.35), yy + Inches(0.4), Inches(5.7), Inches(0.65),
              v, size=11.5, color=TEXT_DIM, line_spacing=1.4)
+
+
+# --- 17 — Meta · ce qui est évalué (candidate-only) --------------------------
+s = add_slide(); page_chrome(s, 17, TOTAL, "Meta · candidate-only")
+section_title(s, "À masquer pendant le role-play",
+              "Ce qui est vraiment évalué.",
+              "Cinq signaux à émettre activement pendant les 20 minutes.")
+
+# Two-column: signals vs anti-signals
+def signal_col(x, label, items, color_dot):
+    add_rect(s, x, Inches(3.6), Inches(6.1), Inches(3.4), BG_PANEL)
+    add_rect(s, x, Inches(3.6), Inches(6.1), Emu(6350), HAIRLINE)
+    add_text(s, x + Inches(0.3), Inches(3.75), Inches(5.5), Inches(0.4),
+             label, size=10, color=TEXT_MUTED, letter_spacing=300)
+    yy = Inches(4.15)
+    for item in items:
+        add_text(s, x + Inches(0.3), yy, Inches(0.3), Inches(0.4),
+                 "●", size=12, color=color_dot)
+        add_text(s, x + Inches(0.65), yy, Inches(5.3), Inches(0.4),
+                 item, size=13, color=TEXT, line_spacing=1.4)
+        yy += Inches(0.45)
+
+signal_col(Inches(0.55), "SIGNAUX FORTS — à émettre", [
+    "Prepared — preuves de recherche Figma",
+    "Self-aware — nommer ses tradeoffs",
+    "Composed — gérer le silence",
+    "Tactically sharp — questions ciblées",
+    "Coachable — accueillir le pushback",
+], ACCENT_SOFT)
+
+signal_col(Inches(6.75), "SIGNAUX FAIBLES — à éviter", [
+    "Feature dump",
+    "AI hype générique",
+    "Overconfident sans grounding",
+    "Pitcher avant d'avoir compris",
+    "Donner une opinion sans contexte",
+], TEXT_MUTED)
+
+add_text(s, Inches(0.55), Inches(7.05 - 0.2), Inches(12), Inches(0.3),
+         "Rubrique : prepared · self-aware · composed · tactically sharp · coachable.",
+         size=10.5, color=ACCENT_SOFT, letter_spacing=20, italic=True)
 
 
 # --- Save ---------------------------------------------------------------------
