@@ -27,17 +27,17 @@ from pptx.dml.color import RGBColor
 
 
 # ---------------------------------------------------------------------------
-# Brand
+# Brand — Cursor warm beige (cursor.com)
 # ---------------------------------------------------------------------------
-BG          = RGBColor(0x0A, 0x0A, 0x0A)
-BG_PANEL    = RGBColor(0x14, 0x14, 0x14)
-BG_PANEL_2  = RGBColor(0x1C, 0x1C, 0x1C)
-HAIRLINE    = RGBColor(0x2A, 0x2A, 0x2A)
-TEXT        = RGBColor(0xF5, 0xF5, 0xF5)
-TEXT_DIM    = RGBColor(0xA0, 0xA0, 0xA0)
-TEXT_MUTED  = RGBColor(0x6B, 0x6B, 0x6B)
-ACCENT      = RGBColor(0xFF, 0xFF, 0xFF)
-ACCENT_SOFT = RGBColor(0xE5, 0xE5, 0xE5)
+BG          = RGBColor(0xF0, 0xEA, 0xE0)   # warm cream / beige
+BG_PANEL    = RGBColor(0xE5, 0xDD, 0xCE)   # subtle panel on beige
+BG_PANEL_2  = RGBColor(0xDA, 0xD0, 0xBE)   # deeper panel
+HAIRLINE    = RGBColor(0xC8, 0xBD, 0xA8)   # warm divider
+TEXT        = RGBColor(0x1F, 0x1B, 0x16)   # warm near-black primary
+TEXT_DIM    = RGBColor(0x5C, 0x54, 0x4A)   # warm secondary
+TEXT_MUTED  = RGBColor(0x8E, 0x86, 0x7B)   # warm tertiary
+ACCENT      = RGBColor(0x1F, 0x1B, 0x16)   # black on beige
+ACCENT_SOFT = RGBColor(0x3A, 0x33, 0x2C)   # deep warm brown
 
 FONT = "Inter"
 FONT_MONO = "JetBrains Mono"
