@@ -1,47 +1,47 @@
 # Preview — Cursor Enterprise PG + Disco Challenge
 
-Rendu PDF + PNG du deck `decks/Cursor_Enterprise_Disco_Challenge.pptx`.
+PDF + PNG renders of `decks/Cursor_Enterprise_Disco_Challenge.pptx`.
 
-## Fichiers
+## Files
 
-- `Cursor_Enterprise_Disco_Challenge.pdf` — version PDF complète, 24 pages 16:9.
-- `slide-01.png` … `slide-24.png` — chaque slide en PNG (110 dpi).
+- `Cursor_Enterprise_Disco_Challenge.pdf` — full PDF, 24 pages 16:9.
+- `slide-01.png` … `slide-24.png` — one PNG per slide (110 dpi).
 
-## Comment ouvrir
+## How to open
 
-- **PDF en ligne** : clic direct sur le fichier `.pdf` dans GitHub.
-- **PPTX éditable** : `decks/Cursor_Enterprise_Disco_Challenge.pptx` — à ouvrir dans Keynote, PowerPoint ou Google Slides.
+- **Online PDF**: click the `.pdf` file directly in GitHub.
+- **Editable PPTX**: `decks/Cursor_Enterprise_Disco_Challenge.pptx` — open in Keynote, PowerPoint or Google Slides.
 
-## Sommaire — 60 min en 3 parties
+## Contents — 60 min in 3 parts
 
-| # | Slide | Partie |
+| # | Slide | Part |
 |---|---|---|
 | 01 | Cover | Intro |
 | 02 | Roadmap 60 min | Intro |
 | 03 | Divider Part 1 | Greenfield |
-| 04 | Critères de ranking F100 | Greenfield |
-| 05 | Top 5 Fortune 100 ranked | Greenfield |
-| 06 | JPMorgan — account thesis | Greenfield |
-| 07 | JPMorgan — stakeholder map | Greenfield |
-| 08 | JPMorgan — entry + first 90 days | Greenfield |
-| 09 | JPMorgan — pilot motion | Greenfield |
+| 04 | Ranking criteria | Greenfield |
+| 05 | Top 5 Spain & Italy ranked | Greenfield |
+| 06 | Santander — account thesis | Greenfield |
+| 07 | Santander — stakeholder map | Greenfield |
+| 08 | Santander — entry + first 90 days | Greenfield |
+| 09 | Santander — pilot motion (Openbank wedge) | Greenfield |
 | 10 | Divider Part 2 — Figma | Disco |
-| 11 | Brief Figma (6 faits) | Disco |
-| 12 | Agenda 20 min | Disco |
-| 13 | Opener (script Marcel) | Disco |
-| 14 | Discovery — Marcel (4 questions) | Disco |
-| 15 | Discovery — Sécurité (3 questions) | Disco |
-| 16 | Why Cursor — 4 angles Figma | Disco |
+| 11 | Figma brief (6 facts) | Disco |
+| 12 | Disco agenda (20 min) | Disco |
+| 13 | Opener (Marcel script) | Disco |
+| 14 | Discovery — Marcel (4 Qs) | Disco |
+| 15 | Discovery — Security (3 Qs) | Disco |
+| 16 | Why Cursor — 4 Figma-calibrated angles | Disco |
 | 17 | Privacy Mode + SOC 2 | Disco |
-| 18 | Close — follow-up précis | Disco |
+| 18 | Close — specific follow-up | Disco |
 | 19 | Divider Part 3 | Debrief |
 | 20 | Top insights + deal hypothesis | Debrief |
-| 21 | 4 questions stratégiques | Debrief |
+| 21 | 4 strategic questions | Debrief |
 | 22 | Deal risks + self-assessment | Debrief |
-| 23 | Phrases-clés anti-blank | Disco |
-| 24 | Meta — rubrique d'éval (candidate-only) | Meta |
+| 23 | Anti-blank key phrases | Disco |
+| 24 | Meta — evaluation rubric (candidate-only) | Meta |
 
-## Regénérer
+## Regenerate
 
 ```bash
 pip install python-pptx

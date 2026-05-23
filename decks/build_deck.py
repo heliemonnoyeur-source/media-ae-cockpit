@@ -1,23 +1,22 @@
 """
 Cursor Enterprise — PG + Disco Challenge
-Prep deck pour l'exercice d'entretien Cursor GTM (60 min, 3 parties).
+Prep deck for the Cursor GTM interview exercise (60 min, 3 parts).
 
-V3 — affiné après lecture du « Cursor Enterprise: PG + Disco Challenge Prompt »
-et du « 2026 Cursor GTM Discovery / Deal Review Interview Prep ».
+V4 — English version. Same structure as V3.
 
-Structure :
-  Partie 1 — Greenfield Pipeline (Fortune 100)        20–25 min
-  Partie 2 — Mock Discovery Call (Figma inbound)       20–25 min
-  Partie 3 — Reflection & Debrief                      10–15 min
-  Meta     — Ce qui est évalué (candidate-only)
+Structure:
+  Part 1 — Greenfield Pipeline (Spain & Italy GTM)     20–25 min
+  Part 2 — Mock Discovery Call (Figma inbound)          20–25 min
+  Part 3 — Reflection & Debrief                         10–15 min
+  Meta   — What is being evaluated (candidate-only)
 
-Faits Figma connus (à exploiter dans la disco) :
-  - Marcel Weekes, VP of Engineering, ~650 ingénieurs
-  - ~85 % sur VS Code (drop-in pour Cursor — VS Code fork)
-  - GitHub Copilot déployé sur toute l'équipe
-  - Évaluent Claude Code en ce moment
-  - 31 Cursor Pro users en shadow (Privacy Mode mixte)
-  - Meeting : Marcel + Security Eng Leader + Security team member
+Known Figma facts to leverage in discovery:
+  - Marcel Weekes, VP of Engineering, ~650 engineers
+  - ~85% on VS Code (drop-in for Cursor — VS Code fork)
+  - GitHub Copilot deployed team-wide
+  - Currently evaluating Claude Code
+  - 31 Cursor Pro shadow users (mixed Privacy Mode)
+  - Meeting: Marcel + Security Eng Leader + Security team member
 """
 
 from pptx import Presentation
@@ -28,7 +27,7 @@ from pptx.dml.color import RGBColor
 
 
 # ---------------------------------------------------------------------------
-# Charte
+# Brand
 # ---------------------------------------------------------------------------
 BG          = RGBColor(0x0A, 0x0A, 0x0A)
 BG_PANEL    = RGBColor(0x14, 0x14, 0x14)
@@ -179,16 +178,16 @@ add_text(s, Inches(0.55), Inches(2.65), Inches(8.8), Inches(2.7),
 
 add_text(s, Inches(0.55), Inches(5.0), Inches(8), Inches(1.5),
          "Cursor wins on workflow, context, and execution.\n"
-         "~70 % des Fortune 1000 l'utilisent déjà.",
+         "~70% of the Fortune 1000 already use it.",
          size=15, color=TEXT_DIM, line_spacing=1.4, italic=True)
 
 add_text(s, Inches(8.6), Inches(2.2), Inches(4), Inches(0.4),
          "STRUCTURE", size=10, color=TEXT_MUTED, letter_spacing=300)
 add_text(s, Inches(8.6), Inches(2.6), Inches(4.5), Inches(3.5),
-         "P1 · Greenfield F100  (20–25')\n"
+         "P1 · Greenfield (Spain & Italy)  (20–25')\n"
          "P2 · Mock Disco Figma  (20–25')\n"
          "P3 · Reflection & Debrief  (10–15')",
-         size=14, color=TEXT, line_spacing=2.0)
+         size=13, color=TEXT, line_spacing=2.0)
 
 add_text(s, Inches(8.6), Inches(5.5), Inches(4), Inches(0.4),
          "POSTURE", size=10, color=TEXT_MUTED, letter_spacing=300)
@@ -208,13 +207,13 @@ add_text(s, Inches(11.5), Inches(7.05), Inches(1.3), Inches(0.3),
 # 02 — Roadmap of the 60 minutes
 # =============================================================================
 s = add_slide(); page_chrome(s, 2, TOTAL, "Roadmap")
-section_title(s, "60 minutes, trois exercices connectés",
-              "Comment le temps va passer.",
-              "Account-development mindset informe la discovery. Une histoire, trois preuves.")
+section_title(s, "60 minutes, three connected exercises",
+              "How the time will be spent.",
+              "Account-development mindset informs discovery. One story, three proofs.")
 
 rows = [
     ("PART 1", "0–25 min",
-     "Greenfield Pipeline (F100)",
+     "Greenfield Pipeline (Spain & Italy)",
      "Top 5 ranked · deep-dive #1 · stakeholder map · entry & 90 days."),
     ("PART 2", "25–50 min",
      "Mock Discovery — Figma inbound",
@@ -244,7 +243,7 @@ for tag, tm, title, desc in rows:
 s = add_slide()
 part_divider(s, 1, "GREENFIELD PIPELINE",
              "Spain & Italy\nfrom zero.",
-             "GTM Iberia + Italie. Top 5 ranked, deep dive sur Santander :\n"
+             "Iberia + Italy GTM. Top 5 ranked, deep dive on Santander:\n"
              "account thesis, stakeholder map, entry sequencing, first 90 days.")
 add_text(s, Inches(11.5), Inches(7.05), Inches(1.3), Inches(0.3),
          f"03 / {TOTAL:02d}", size=9, color=TEXT_MUTED,
@@ -252,24 +251,24 @@ add_text(s, Inches(11.5), Inches(7.05), Inches(1.3), Inches(0.3),
 
 
 # =============================================================================
-# 04 — Critères de sélection F100
+# 04 — Ranking criteria
 # =============================================================================
-s = add_slide(); page_chrome(s, 4, TOTAL, "Critères de ranking", part=1)
-section_title(s, "Avant le Top 5",
-              "Comment je classe un compte ENT Spain & Italy.",
-              "Cinq lentilles, pondérées. Toute exception = on cherche pourquoi.")
+s = add_slide(); page_chrome(s, 4, TOTAL, "Ranking criteria", part=1)
+section_title(s, "Before the Top 5",
+              "How I rank an ENT account in Spain & Italy.",
+              "Five lenses, weighted. Any exception — I find out why.")
 
 crits = [
     ("01 · Eng headcount",
-     "≥ 5 K ingés pour un deal enterprise pertinent. Plus c'est gros, plus le math ROI parle."),
-    ("02 · AI mandate public",
-     "Roadmap IA exécutive annoncée → champion réception facilitée, urgence existante."),
+     "≥ 5K engineers for a meaningful enterprise deal. The bigger, the louder ROI math gets."),
+    ("02 · Public AI mandate",
+     "Executive-announced AI roadmap → easier champion uptake, urgency already exists."),
     ("03 · Reg / privacy posture",
-     "Régulés EU (DORA, EU AI Act, ECB) = Privacy Mode = enabler, pas blocker. Notre edge."),
-    ("04 · Codebase complexité",
-     "Legacy + modern + mono / multi repo = large codebase performance pertinent."),
+     "EU regulated (DORA, EU AI Act, ECB) = Privacy Mode = enabler, not blocker. Our edge."),
+    ("04 · Codebase complexity",
+     "Legacy + modern + mono/multi-repo = large codebase performance becomes pivotal."),
     ("05 · Procurement reach",
-     "Équipe dev-tools identifiable + path procurement traçable = vélocité de deal."),
+     "Identifiable dev-tools team + traceable procurement path = deal velocity."),
 ]
 y = Inches(3.65)
 for k, v in crits:
@@ -282,29 +281,29 @@ for k, v in crits:
 
 
 # =============================================================================
-# 05 — Top 5 Fortune 100
+# 05 — Top 5
 # =============================================================================
 s = add_slide(); page_chrome(s, 5, TOTAL, "Top 5 prospects", part=1)
 section_title(s, "Greenfield · ranked",
-              "Top 5 GTM Spain & Italy.",
-              "Ranking défendable. Santander en #1 → deep-dive sur les 4 slides qui suivent.")
+              "Top 5 — Spain & Italy GTM.",
+              "Defensible ranking. Santander as #1 → deep-dive on the next 4 slides.")
 
 prospects = [
     ("#1", "Santander",
-     "~15–20 K tech · « One Transformation » sous Dirk Marzluf · régulé multi-juridictions · Openbank = wedge digital-native.",
-     "Plus gros TAM Iberia + champion-ready."),
+     "~15–20K tech · 'One Transformation' under Dirk Marzluf · multi-jurisdiction regulated · Openbank = digital-native wedge.",
+     "Largest Iberia TAM + champion-ready."),
     ("#2", "BBVA",
-     "~10 K tech · ChatGPT Enterprise déjà déployé org-wide · narrative « born digital » sous Carlos Torres.",
-     "AI-ready buyer, vélocité forte."),
+     "~10K tech · ChatGPT Enterprise already rolled out org-wide · 'born digital' under Carlos Torres.",
+     "AI-ready buyer, strong deal velocity."),
     ("#3", "Enel",
-     "~15 K tech · transition énergétique = urgence · OpenInnovability AI lab · CISO mature.",
-     "Plus gros TAM Italie."),
+     "~15K tech · energy transition = urgency · OpenInnovability AI lab · mature CISO function.",
+     "Largest Italy TAM."),
     ("#4", "EssilorLuxottica",
-     "~5–7 K tech / 190 K total · Industry 4.0 + e-commerce push · régulé (medical devices).",
-     "Compte FR/IT, leverage industriel."),
+     "~5–7K tech / 190K total · Industry 4.0 + e-commerce push · regulated (medical devices).",
+     "FR/IT footprint, industrial leverage."),
     ("#5", "El Corte Inglés",
-     "~2–3 K tech · transformation e-commerce + supply chain sous Marta Álvarez · moins de concurrence.",
-     "Moins crowded, deal accessible."),
+     "~2–3K tech · e-commerce + supply chain transformation under Marta Álvarez · less crowded.",
+     "Less competitive crowding, accessible."),
 ]
 y = Inches(3.55)
 for rk, name, why, edge in prospects:
@@ -322,22 +321,22 @@ for rk, name, why, edge in prospects:
 
 
 # =============================================================================
-# 06 — #1 JPMorgan : Account thesis
+# 06 — Santander · Account thesis
 # =============================================================================
 s = add_slide(); page_chrome(s, 6, TOTAL, "Deep dive · Santander", part=1)
 section_title(s, "Top prospect · Account thesis",
               "Santander — why now, where Cursor wins.",
-              "4 angles. Tous ont une preuve publique citable (analyst calls, presse Iberia).")
+              "4 angles. Every one has a public, citable proof point.")
 
 cols = [
     ("WHY SANTANDER",
-     "~15–20 K tech (Santander Global\nT&O + Openbank + Cardinal).\nAna Botín mentionne l'IA à chaque\nresults call.\nPartenariats OpenAI + Google Cloud\nannoncés en 2024."),
+     "~15–20K tech (Santander Global\nT&O + Openbank + Cardinal).\nAna Botín references AI on every\nearnings call.\nOpenAI + Google Cloud partnerships\nannounced in 2024."),
     ("WHY NOW",
-     "« One Transformation » T&O lancée\n2024 sous Dirk Marzluf.\nBBVA a déployé ChatGPT Enterprise\norg-wide → pression compétitive directe.\nDORA + EU AI Act = urgence\ngouvernance IA."),
-    ("LEVIERS CURSOR",
-     "Velocity (Openbank, digital-native).\nGovernance (Privacy Mode pour\nECB / BoE / Fed).\nOnboarding (rotations 10+ pays).\nCost (réduction IT spend / revenue)."),
-    ("FORCES MARCHÉ",
-     "Talent IA cher en Iberia →\noutil = levier hiring & rétention.\nModel neutrality = résilience face à\nl'écosystème EU souverain.\nClaude Code en éval chez les pairs\nEuropéens (ING, BNP)."),
+     "'One Transformation' T&O launched\n2024 under Dirk Marzluf.\nBBVA deployed ChatGPT Enterprise\norg-wide → direct competitive pressure.\nDORA + EU AI Act = AI governance\nurgency."),
+    ("CURSOR LEVERS",
+     "Velocity (Openbank, digital-native).\nGovernance (Privacy Mode for\nECB / BoE / Fed).\nOnboarding (rotations across 10+\ncountries).\nCost (lower IT spend / revenue ratio)."),
+    ("MARKET FORCES",
+     "AI talent costly in Iberia →\ntool = hiring & retention lever.\nModel neutrality = resilience vs\nEU sovereign-AI ecosystem.\nClaude Code being evaluated at EU\npeers (ING, BNP)."),
 ]
 xw = Inches(2.95); gap = Inches(0.15)
 x = Inches(0.55)
@@ -352,29 +351,29 @@ for label, body in cols:
 
 
 # =============================================================================
-# 07 — JPMorgan : Stakeholder map
+# 07 — Santander · Stakeholder map
 # =============================================================================
 s = add_slide(); page_chrome(s, 7, TOTAL, "Santander · Stakeholders", part=1)
 section_title(s, "Engineering org map",
-              "Qui je cible, dans quel ordre, et pourquoi.",
-              "Power signals : budget T&O, hiring T&O Madrid/London, sponsorship d'initiatives IA Botín-niveau.")
+              "Who I target, in what order, and why.",
+              "Power signals: T&O budget, T&O hiring in Madrid/London, sponsorship of board-level AI initiatives.")
 
 stk = [
     ("01", "Openbank CTO + Head of Engineering",
-     "Wedge #1. Filiale digital-native, autonome, procurement plus court.",
-     "Cold + LinkedIn. Message : « pilote 30 j sur 1 squad, métriques pré-définies »."),
-    ("02", "Dir / VP Developer Productivity — Santander T&O",
-     "Buyer économique au niveau Groupe. Porte le budget dev tools.",
-     "Warm intro Madrid tech community + ref customer EU bank si dispo."),
-    ("03", "AppSec leadership (sous le CISO Groupe)",
-     "Gatekeeper. Pas un blocker si Privacy Mode + SOC 2 + DORA-aligned anticipés.",
-     "On les inclut tôt, on envoie SIG + pentest + DPA avant de demander."),
+     "Wedge #1. Digital-native subsidiary, autonomous, shorter procurement.",
+     "Cold + LinkedIn. Message: '30-day pilot on one squad, metrics pre-defined.'"),
+    ("02", "VP / Director of Developer Productivity — Santander T&O",
+     "Economic buyer at Group level. Owns the dev tools budget.",
+     "Warm intro via Madrid tech community + EU bank reference customer."),
+    ("03", "AppSec leadership (under the Group CISO)",
+     "Gatekeeper. Not a blocker if Privacy Mode + SOC 2 + DORA-aligned anticipated.",
+     "Include them early, send SIG + pentest + DPA before asking."),
     ("04", "Dirk Marzluf (Group Head of T&O)",
-     "Exec sponsor. Pas en first touch — on l'engage quand on a un POC chiffré.",
-     "Une fois POC live : board-level ROI + risk reduction story."),
+     "Executive sponsor. Not first-touch — engaged once we have a quantified POC.",
+     "Once POC live: board-level ROI + risk reduction narrative."),
     ("05", "Engineers (bottom-up)",
-     "Adoption shadow = signal Marcel-style. Free tier monitoring sur emails Santander.",
-     "On surveille signups, on identifie un staff IC champion à Madrid."),
+     "Shadow adoption = Marcel-style signal. Free-tier monitoring on @santander.com.",
+     "Track signups, identify a staff IC champion in Madrid."),
 ]
 y = Inches(3.55)
 for n, who, why, how in stk:
@@ -391,24 +390,24 @@ for n, who, why, how in stk:
 
 
 # =============================================================================
-# 08 — JPMorgan : Entry points & 90 days
+# 08 — Santander · Entry + 90 days
 # =============================================================================
 s = add_slide(); page_chrome(s, 8, TOTAL, "Santander · Entry + 90 days", part=1)
 section_title(s, "Pipeline & sequencing",
-              "Comment je crée le momentum.",
-              "Outreach multi-canal, séquencé, mesurable. 90 jours pour un POC Openbank chiffré.")
+              "How I create momentum.",
+              "Multi-channel, sequenced, measurable outreach. 90 days to a quantified Openbank POC.")
 
 # left: entry channels
 add_rect(s, Inches(0.55), Inches(3.55), Inches(6.1), Inches(3.55), BG_PANEL)
 add_rect(s, Inches(0.55), Inches(3.55), Inches(6.1), Emu(6350), HAIRLINE)
 add_text(s, Inches(0.85), Inches(3.7), Inches(5.5), Inches(0.4),
-         "ENTRY POINTS — séquencés", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
+         "ENTRY POINTS — sequenced", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 entries = [
-    ("Openbank-first", "Wedge digital-native. Cible Openbank CTO + Head of Eng. Procurement plus court."),
-    ("Cold outbound", "Dir DevProd Santander T&O + AppSec, 3 touches/sem, ROI + ref EU bank."),
-    ("Warm intro", "Madrid tech community (South Summit, Endeavor, Wayra alumni). Petit monde."),
-    ("Conférence", "South Summit Madrid · Money 20/20 Europe · DevOpsCon Madrid."),
-    ("Bottom-up", "Free tier monitoring sur @santander.com → champion IC à Madrid/Boston."),
+    ("Openbank-first", "Digital-native wedge. Target Openbank CTO + Head of Eng. Shorter procurement."),
+    ("Cold outbound", "Dir DevProd Santander T&O + AppSec, 3 touches/week, ROI + EU bank reference."),
+    ("Warm intro", "Madrid tech community (South Summit, Endeavor, Wayra alumni). Small world."),
+    ("Conference", "South Summit Madrid · Money 20/20 Europe · DevOpsCon Madrid."),
+    ("Bottom-up", "Free-tier monitoring on @santander.com → IC champion in Madrid/Boston."),
 ]
 yy = Inches(4.1)
 for k, v in entries:
@@ -424,9 +423,9 @@ add_rect(s, Inches(6.85), Inches(3.55), Inches(5.95), Emu(6350), HAIRLINE)
 add_text(s, Inches(7.15), Inches(3.7), Inches(5.5), Inches(0.4),
          "FIRST 90 DAYS", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 days = [
-    ("J0–J30", "Research Openbank + Santander T&O.\n3 cold touches/sem + 1 warm intro Madrid.\nSuccess : 1 mtg Openbank CTO, 1 mtg AppSec."),
-    ("J30–J60", "Discovery Openbank + parallel intro T&O.\nSuccess : POC 20–30 ingés signé sur 1 squad\nOpenbank (mobile ou backend)."),
-    ("J60–J90", "POC live, Privacy Mode mandaté + DORA-aligned.\nSuccess : cycle-time + PR + NPS mesurés.\nOuvre conversation Groupe T&O sur 1 K+ seats."),
+    ("D0–D30",  "Research Openbank + Santander T&O.\n3 cold touches/week + 1 warm intro Madrid.\nSuccess: 1 mtg Openbank CTO, 1 mtg AppSec."),
+    ("D30–D60", "Discovery Openbank + parallel T&O intro.\nSuccess: 20–30-engineer POC signed on\none Openbank squad (mobile or backend)."),
+    ("D60–D90", "POC live, Privacy Mode mandated + DORA-aligned.\nSuccess: cycle-time + PR + NPS measured.\nOpens Group T&O conversation on 1K+ seats."),
 ]
 yy = Inches(4.1)
 for k, v in days:
@@ -438,22 +437,22 @@ for k, v in days:
 
 
 # =============================================================================
-# 09 — JPMorgan : Pilot motion
+# 09 — Santander · Pilot motion
 # =============================================================================
 s = add_slide(); page_chrome(s, 9, TOTAL, "Santander · Pilot motion", part=1)
 section_title(s, "Initial pilot motion · Openbank wedge",
-              "À quoi ressemble le POC chiffré.",
-              "Openbank = path of least resistance. Success ici ouvre la conversation Groupe T&O sur 1 K+ seats.")
+              "What the quantified POC looks like.",
+              "Openbank = path of least resistance. Success here opens Group T&O on 1K+ seats.")
 
 cols = [
     ("SCOPE",
-     "20–30 ingés Openbank (digital-native,\nstack moderne, vélocité élevée).\n30 jours.\n1 squad mobile ou backend, 1 repo de\nréférence."),
-    ("MÉTRIQUES",
-     "Cycle time (PR opened → merged)\nPR throughput / ingé / semaine\nSenior IC adoption rate\nNPS engagement à J+15 et J+30."),
+     "20–30 Openbank engineers\n(digital-native, modern stack,\nhigh velocity).\n30 days.\n1 mobile or backend squad,\n1 reference repo."),
+    ("METRICS",
+     "Cycle time (PR opened → merged)\nPR throughput / engineer / week\nSenior IC adoption rate\nNPS engagement at D+15 and D+30."),
     ("SECURITY DAY 1",
-     "Privacy Mode obligatoire.\nSOC 2 + SIG envoyés J-7.\nDORA-aligned : audit logs, data\nresidency EU validés.\nAppSec Groupe dans la loop dès J0."),
+     "Privacy Mode mandatory.\nSOC 2 + SIG sent D-7.\nDORA-aligned: audit logs, EU data\nresidency validated.\nGroup AppSec in the loop from D0."),
     ("EXIT GATE",
-     "Cycle-time ↓ ≥ 12 %\nNPS ≥ 50\nSenior IC adoption ≥ 60 %\n→ ouvre Groupe T&O sur Santander\nGlobal Tech : 1 000–5 000 seats."),
+     "Cycle-time ↓ ≥ 12%\nNPS ≥ 50\nSenior IC adoption ≥ 60%\n→ opens Group T&O conversation\non Santander Global Tech: 1K–5K seats."),
 ]
 xw = Inches(2.95); gap = Inches(0.15)
 x = Inches(0.55)
@@ -473,34 +472,34 @@ for label, body in cols:
 s = add_slide()
 part_divider(s, 2, "MOCK DISCOVERY · FIGMA",
              "Marcel Weekes\ninbound.",
-             "VP Eng · ~650 ingénieurs · 85 % VS Code · Copilot déployé ·\n"
-             "Claude Code en évaluation · 31 Cursor Pro shadow (Privacy Mode mixte).")
+             "VP Eng · ~650 engineers · 85% VS Code · Copilot deployed ·\n"
+             "Claude Code being evaluated · 31 Cursor Pro shadow users (mixed Privacy Mode).")
 add_text(s, Inches(11.5), Inches(7.05), Inches(1.3), Inches(0.3),
          f"10 / {TOTAL:02d}", size=9, color=TEXT_MUTED,
          align=PP_ALIGN.RIGHT, font=FONT_MONO)
 
 
 # =============================================================================
-# 11 — Brief Figma : faits connus
+# 11 — Figma brief
 # =============================================================================
 s = add_slide(); page_chrome(s, 11, TOTAL, "Brief · Figma", part=2)
-section_title(s, "Ce qu'on sait avant d'entrer",
-              "Le brief, en 6 faits.",
-              "Chaque fait est un levier discovery. On les exploite — pas on les répète.")
+section_title(s, "What we know before we walk in",
+              "The brief, in 6 facts.",
+              "Every fact is a discovery lever. We leverage them — not repeat them.")
 
 facts = [
     ("Marcel Weekes",     "VP of Engineering, leads ~650 engineers.",
-     "→ Buyer économique principal. KPI : vélocité, talent."),
-    ("~85 % sur VS Code", "Standard interne dominant.",
+     "→ Primary economic buyer. KPIs: velocity, talent."),
+    ("~85% on VS Code",   "Dominant internal standard.",
      "→ Cursor = VS Code fork. Drop-in. Muscle memory transfer."),
-    ("GitHub Copilot",    "Déployé sur toute l'équipe.",
-     "→ Baseline connu. « Why change » = quality gap, pas absence d'outil."),
-    ("Claude Code eval",  "En évaluation active en ce moment.",
-     "→ THE compétiteur. Why now est déjà établi de leur côté."),
-    ("31 Cursor Pro",     "Shadow usage interne, Privacy Mode mixte.",
-     "→ Or pur. Champion silencieux + risque sécu = leur problème, notre wedge."),
+    ("GitHub Copilot",    "Deployed across the entire team.",
+     "→ Known baseline. 'Why change' = quality gap, not absence of tool."),
+    ("Claude Code eval",  "Actively under evaluation right now.",
+     "→ THE competitor. 'Why now' is already established on their side."),
+    ("31 Cursor Pro",     "Shadow internal usage, mixed Privacy Mode.",
+     "→ Gold. Silent champion + sec risk = their problem, our wedge."),
     ("Attendees",         "Marcel + Security Eng Leader + Security IC.",
-     "→ 2/3 sécu. La conversation est sécurité-first, pas velocity-first."),
+     "→ 2 of 3 are security. This is a security-first conversation."),
 ]
 y = Inches(3.55)
 for k, fact, lever in facts:
@@ -515,19 +514,19 @@ for k, fact, lever in facts:
 
 
 # =============================================================================
-# 12 — Agenda 20 min (Figma)
+# 12 — Disco agenda
 # =============================================================================
 s = add_slide(); page_chrome(s, 12, TOTAL, "Disco · Agenda", part=2)
-section_title(s, "Structure du call",
-              "20–25 minutes, timeboxé.",
-              "Marcel parle d'abord. Sécu entre minute 5. Goal = follow-up précis, pas pilote.")
+section_title(s, "Call structure",
+              "20–25 minutes, timeboxed.",
+              "Marcel speaks first. Security joins minute 5. Goal = specific follow-up, not pilot close.")
 
 rows = [
-    ("0:00 – 1:30",  "Cadrage",                "Agenda · permission · ancrage sur les 31 Pro users."),
-    ("1:30 – 9:30",  "Discovery",              "Marcel d'abord, Sécurité à partir de 5:00."),
-    ("9:30 – 13:00", "Thèse + 1 proof point",  "Why now (urgence eux) · why Cursor (vs Claude Code)."),
-    ("13:00 – 17:00","Sécurité",               "Privacy Mode 3 bullets + SOC 2. J'ouvre, pas eux."),
-    ("17:00 – 20:00","Next step précis",       "Follow-up nommé : qui, quand, pour quoi faire."),
+    ("0:00 – 1:30",  "Framing",               "Agenda · permission · anchor on the 31 Pro users."),
+    ("1:30 – 9:30",  "Discovery",             "Marcel first, Security from minute 5."),
+    ("9:30 – 13:00", "Thesis + 1 proof point","Why now (their urgency) · why Cursor (vs Claude Code)."),
+    ("13:00 – 17:00","Security",              "Privacy Mode 3 bullets + SOC 2. I open it, not them."),
+    ("17:00 – 20:00","Specific next step",    "Named follow-up: who, when, what for."),
 ]
 y = Inches(3.85)
 for tm, title, desc in rows:
@@ -542,32 +541,32 @@ for tm, title, desc in rows:
 
 
 # =============================================================================
-# 13 — Opener (script Marcel-spécifique)
+# 13 — Opener (Marcel-specific script)
 # =============================================================================
 s = add_slide(); page_chrome(s, 13, TOTAL, "Disco · Opener", part=2)
-section_title(s, "Les 90 premières secondes",
-              "Script d'ouverture.",
-              "Préparation visible (nom, faits) · pas de pitch · pré-engagement sur l'agenda.")
+section_title(s, "The first 90 seconds",
+              "Opening script.",
+              "Visible preparation (name, facts) · no pitch · pre-engagement on the agenda.")
 
 add_rect(s, Inches(0.55), Inches(3.55), Inches(12.25), Inches(3.25), BG_PANEL)
 add_rect(s, Inches(0.55), Inches(3.55), Inches(12.25), Emu(6350), HAIRLINE)
 add_text(s, Inches(0.9), Inches(3.8), Inches(0.5), Inches(0.4),
          "“", size=44, color=TEXT_MUTED, font="Georgia")
 add_text(s, Inches(1.35), Inches(3.95), Inches(11.1), Inches(2.8),
-         "Marcel, merci pour ces 20 minutes — et merci à [Security Eng Lead] et "
-         "[Sec team member] de vous être joints, c'est exactement la configuration "
-         "la plus utile pour cette conversation. Avant de commencer : j'ai noté que "
-         "31 de vos ingénieurs sont déjà sur Cursor Pro en mode mixte. Plutôt que "
-         "de pitcher, je préfère partir de cette réalité — comprendre ce que vous "
-         "en voyez en interne, ce qui pousse l'évaluation Claude Code en parallèle, "
-         "et où vous voulez emmener tout ça à 6 mois. Je vais passer le plus clair "
-         "du temps à poser des questions. Goal côté Cursor : un follow-up précis et "
-         "utile, pas un pitch. Ça vous va comme cadrage ?",
+         "Marcel, thanks for the 20 minutes — and thanks to [Security Eng Lead] "
+         "and [Sec team member] for joining, this is exactly the right room for "
+         "this conversation. Before we start: I noticed 31 of your engineers are "
+         "already on Cursor Pro in mixed Privacy Mode. Rather than pitching, I'd "
+         "rather start from that reality — understand what you're seeing internally, "
+         "what's pulling the Claude Code evaluation in parallel, and where you want "
+         "all of this to be in 6 months. I'm going to spend most of the time asking "
+         "questions. My goal on Cursor's side: a specific, useful follow-up, not "
+         "a pitch. Does that framing work for you?",
          size=14, color=TEXT, line_spacing=1.55)
 
 add_text(s, Inches(0.55), Inches(6.95), Inches(12), Inches(0.3),
-         "EFFETS — préparation visible (31 Pro, Claude Code) · self-aware (pas de pitch) · "
-         "pré-engagement · sécu impliquée dès le mot 1",
+         "EFFECTS — visible preparation (31 Pro, Claude Code) · self-aware (no pitch) · "
+         "pre-engagement · security involved from word 1",
          size=10, color=TEXT_MUTED, letter_spacing=80)
 
 
@@ -576,22 +575,22 @@ add_text(s, Inches(0.55), Inches(6.95), Inches(12), Inches(0.3),
 # =============================================================================
 s = add_slide(); page_chrome(s, 14, TOTAL, "Disco · Marcel", part=2)
 section_title(s, "8 minutes · VP of Engineering",
-              "Questions ancrées sur les faits.",
-              "Chaque question pointe un fait connu. Pas de question générique.")
+              "Questions anchored on the facts.",
+              "Every question points at a known fact. No generic questions.")
 
 qs = [
-    ("01", "Origine du shadow",
-     "« 31 ingés sur Cursor Pro — comment c'est arrivé, et qu'est-ce qu'ils en disent quand vous leur demandez ? »",
-     "→ Bottom-up signal. Si Marcel l'ignorait, c'est un trou de visibilité = wedge."),
+    ("01", "Origin of shadow",
+     "\"31 engineers on Cursor Pro — how did that happen, and what do they say when you ask them?\"",
+     "→ Bottom-up signal. If Marcel didn't know, that's a visibility gap = wedge."),
     ("02", "Pressure-test Claude Code",
-     "« Qu'est-ce qui vous a fait regarder Claude Code maintenant plutôt qu'il y a 6 mois, et qu'est-ce que vous attendez d'un éventuel switch ? »",
-     "→ Le « why now » est ici. On laisse Marcel le formuler à notre place."),
-    ("03", "Gap Copilot",
-     "« Copilot est déployé wall-to-wall — quel est le travail qui devrait être assisté et ne l'est pas aujourd'hui ? »",
-     "→ Refactos · large context · review. Là où Cursor a un edge tangible."),
+     "\"What made you look at Claude Code now rather than 6 months ago, and what would you expect from a switch?\"",
+     "→ 'Why now' lives here. We let Marcel articulate it for us."),
+    ("03", "Copilot gap",
+     "\"Copilot is deployed wall-to-wall — what work should be assisted but isn't today?\"",
+     "→ Refactors · large context · review. Where Cursor has a tangible edge."),
     ("04", "Senior IC opt-out",
-     "« Les seniors et les juniors utilisent Copilot pareil ? Y a-t-il un tier qui a discrètement décroché ? »",
-     "→ Senior opt-out = plafond ROI ~5 %. Notre meilleure preuve de gap."),
+     "\"Are senior and junior engineers using Copilot the same way? Is there a tier that's quietly disengaged?\"",
+     "→ Senior opt-out = org ROI capped at ~5%. Our strongest gap proof."),
 ]
 y = Inches(3.55)
 for n, k, q, hint in qs:
@@ -610,21 +609,21 @@ for n, k, q, hint in qs:
 # =============================================================================
 # 15 — Discovery · Security
 # =============================================================================
-s = add_slide(); page_chrome(s, 15, TOTAL, "Disco · Sécurité", part=2)
-section_title(s, "Embarquer la sécurité (2/3 attendees)",
-              "Questions sécurité ancrées sur le shadow Cursor.",
-              "Le sujet est déjà sur leur table — 31 Pro users en mode mixte. On le nomme.")
+s = add_slide(); page_chrome(s, 15, TOTAL, "Disco · Security", part=2)
+section_title(s, "Bring security in (2 of 3 attendees)",
+              "Security questions anchored on the shadow Cursor reality.",
+              "The topic is already on their desk — 31 Pro users in mixed Privacy Mode. We name it.")
 
 qs = [
     ("05", "Shadow Cursor",
-     "« Les 31 utilisateurs Pro avec Privacy Mode mixte — ça a déclenché un review interne, ou pas encore ? »",
-     "→ Pose la réalité du risque actuel sans la dramatiser."),
-    ("06", "Critères de sanction",
-     "« Qu'est-ce qu'un outil IA de code doit prouver pour être sanctionné chez Figma — au-delà de SOC 2 ? »",
-     "→ Audit logs ? Data residency ? BYO-key ? On note pour anticiper."),
-    ("07", "Posture Claude Code",
-     "« Comment l'évaluation Claude Code se passe côté sécurité — qu'est-ce que vous regardez en parallèle de la capacité produit ? »",
-     "→ Donne le terrain de comparaison. Privacy Mode est un argument différenciateur."),
+     "\"The 31 Pro users in mixed Privacy Mode — has that triggered an internal review yet, or not?\"",
+     "→ Surface the existing risk without dramatizing it."),
+    ("06", "Sanction criteria",
+     "\"What does an AI coding tool need to prove to be sanctioned at Figma — beyond SOC 2?\"",
+     "→ Audit logs? Data residency? BYO-key? We note it to anticipate."),
+    ("07", "Claude Code security posture",
+     "\"How is the Claude Code evaluation going on the security side — what are you looking at alongside product capability?\"",
+     "→ Reveals the comparison terrain. Privacy Mode is a differentiated argument."),
 ]
 y = Inches(3.55)
 for n, k, q, hint in qs:
@@ -641,26 +640,26 @@ for n, k, q, hint in qs:
 
 
 # =============================================================================
-# 16 — Why Cursor (vs Claude Code + VS Code angle)
+# 16 — Why Cursor (calibrated for Figma)
 # =============================================================================
 s = add_slide(); page_chrome(s, 16, TOTAL, "Why Cursor", part=2)
-section_title(s, "Trois angles qui matchent leur réalité",
-              "Pourquoi Cursor — calibré pour ce dossier précis.",
-              "On reprend les 4 différenciateurs officiels et on les zoom sur Figma.")
+section_title(s, "Three angles that match their reality",
+              "Why Cursor — calibrated for this specific account.",
+              "We take the 4 official differentiators and zoom them onto Figma.")
 
 claims = [
     ("01", "VS Code fork = drop-in",
-     "85 % de l'équipe est déjà sur VS Code. Muscle memory, extensions, "
-     "keymaps, settings transfèrent. Coût d'adoption ≈ 0."),
+     "85% of the team is already on VS Code. Muscle memory, extensions, keymaps, "
+     "settings carry over. Adoption cost ≈ 0."),
     ("02", "Large codebase performance",
-     "Éditeur C++/WASM + infra Rust/TS = repo complexe. C'est exactement "
-     "le terrain où Cursor surperforme — semantic search, indexing, retrieval."),
+     "C++/WASM editor + Rust/TS infra = complex repo. Exactly where Cursor outperforms — "
+     "semantic search, indexing, retrieval."),
     ("03", "Model neutrality vs Claude Code",
-     "Claude Code = Anthropic-locked. Cursor donne accès au SOTA en continu — "
-     "vous ne pariez pas la prochaine année sur un seul provider."),
+     "Claude Code = Anthropic-locked. Cursor keeps SOTA access flowing — "
+     "you don't bet the next year on a single provider."),
     ("04", "Platform, not just a tool",
-     "Plan · write · review · debug · iterate dans un seul environnement. "
-     "Pas un CLI à côté de l'IDE. Workflow integration > intelligence brute."),
+     "Plan · write · review · debug · iterate in one environment. "
+     "Not a CLI next to the IDE. Workflow integration > raw intelligence."),
 ]
 y = Inches(3.55)
 for n, k, body in claims:
@@ -676,24 +675,24 @@ for n, k, body in claims:
 
 
 # =============================================================================
-# 17 — Privacy Mode (3 bullets exacts) + SOC 2
+# 17 — Privacy Mode + SOC 2
 # =============================================================================
-s = add_slide(); page_chrome(s, 17, TOTAL, "Sécurité · Privacy Mode", part=2)
-section_title(s, "Minute 13 — je l'ouvre moi-même",
-              "Le sujet est déjà chez eux. On le tranche.",
-              "31 Pro users en Privacy Mode mixte = le risque est déjà réel. Voici comment Cursor le règle.")
+s = add_slide(); page_chrome(s, 17, TOTAL, "Security · Privacy Mode", part=2)
+section_title(s, "Minute 13 — I raise it myself",
+              "The topic is already with them. We resolve it.",
+              "31 Pro users in mixed Privacy Mode = real existing risk. Here's how Cursor resolves it.")
 
 items = [
-    ("01", "Code non-stocké",
-     "Customer code is not stored or retained — c'est contractuel, pas un toggle."),
-    ("02", "Pas d'entraînement",
-     "Code is not used to train models — ni les nôtres, ni ceux des providers tiers."),
-    ("03", "Requêtes éphémères",
-     "Requests are isolated and ephemeral — pas de log persistant des prompts."),
+    ("01", "Code not retained",
+     "Customer code is not stored or retained — contractual, not a toggle."),
+    ("02", "No training",
+     "Code is not used to train models — neither ours, nor third-party providers'."),
+    ("03", "Ephemeral requests",
+     "Requests are isolated and ephemeral — no persistent prompt logs."),
     ("04", "Enterprise readiness",
-     "SOC 2 · contrôles admin · visibilité · SSO. Call security ↔ security sous 7 jours."),
-    ("05", "Conversion shadow → sanctionné",
-     "Les 31 Pro users actuels peuvent basculer en Privacy Mode mandaté en < 1 jour."),
+     "SOC 2 · admin controls · visibility · SSO. Security ↔ security call within 7 days."),
+    ("05", "Shadow → sanctioned",
+     "The 31 current Pro users can switch to mandated Privacy Mode in < 1 day."),
 ]
 y = Inches(3.55)
 for n, k, body in items:
@@ -708,32 +707,32 @@ for n, k, body in items:
 
 
 # =============================================================================
-# 18 — Close : follow-up précis
+# 18 — Close
 # =============================================================================
 s = add_slide(); page_chrome(s, 18, TOTAL, "Disco · Close", part=2)
-section_title(s, "Minute 17 — la sortie",
-              "Goal de l'exercice : un follow-up précis.",
-              "Pas un pilote. Pas un « on se rappelle ». Un meeting nommé, daté, avec un purpose.")
+section_title(s, "Minute 17 — the exit",
+              "The exercise goal: a specific follow-up.",
+              "Not a pilot. Not a 'let's reconnect.' A named meeting, dated, with a purpose.")
 
 # central proposal box
 add_rect(s, Inches(0.55), Inches(3.55), Inches(12.25), Inches(2.6), BG_PANEL)
 add_rect(s, Inches(0.55), Inches(3.55), Inches(12.25), Emu(6350), HAIRLINE)
 add_text(s, Inches(0.85), Inches(3.75), Inches(11), Inches(0.4),
-         "FOLLOW-UP PROPOSÉ", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
+         "PROPOSED FOLLOW-UP", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 add_text(s, Inches(0.85), Inches(4.15), Inches(11.5), Inches(0.7),
-         "60 min, sous 10 jours — Cursor SE + Cursor Security ↔ Figma DevEx + AppSec.",
-         size=18, bold=True, color=TEXT, line_spacing=1.3)
+         "60 minutes, within 10 days — Cursor SE + Cursor Security ↔ Figma DevEx + AppSec.",
+         size=17, bold=True, color=TEXT, line_spacing=1.3)
 add_text(s, Inches(0.85), Inches(5.0), Inches(11.5), Inches(1.2),
-         "Purpose : (1) scoping technique d'un POC 20–30 ingés sur un repo nommé, métriques pré-définies,\n"
-         "Privacy Mode mandaté ; (2) review sécu parallèle (SIG, pentest, archi, DPA envoyés J-7).",
+         "Purpose: (1) technical scoping of a 20–30-engineer POC on a named repo, pre-defined metrics,\n"
+         "Privacy Mode mandated; (2) parallel security review (SIG, pentest, architecture, DPA sent D-7).",
          size=12, color=TEXT_DIM, line_spacing=1.55)
 
 # script line
 add_text(s, Inches(0.55), Inches(6.45), Inches(12.25), Inches(0.5),
-         "PHRASE À DIRE", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
+         "WHAT TO SAY", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 add_text(s, Inches(0.55), Inches(6.8), Inches(12.25), Inches(0.4),
-         "« Marcel, ça vaut le coup qu'on bloque 60 min sous 10 jours, vous + sécu + nos équivalents ? "
-         "Je vous envoie le draft d'agenda dans la journée. »",
+         "\"Marcel, is it worth blocking 60 minutes within 10 days — you + security + our counterparts? "
+         "I'll send you a draft agenda today.\"",
          size=12, color=ACCENT_SOFT, italic=True, line_spacing=1.4)
 
 
@@ -743,32 +742,32 @@ add_text(s, Inches(0.55), Inches(6.8), Inches(12.25), Inches(0.4),
 s = add_slide()
 part_divider(s, 3, "REFLECTION & DEBRIEF",
              "10 minutes.\nStructured thinking.",
-             "2–3 min silencieuses pour rassembler. Puis : top insights · deal hypothesis ·\n"
-             "questions stratégiques · risks · self-assessment.")
+             "2–3 silent minutes to gather. Then: top insights · deal hypothesis ·\n"
+             "strategic questions · risks · self-assessment.")
 add_text(s, Inches(11.5), Inches(7.05), Inches(1.3), Inches(0.3),
          f"19 / {TOTAL:02d}", size=9, color=TEXT_MUTED,
          align=PP_ALIGN.RIGHT, font=FONT_MONO)
 
 
 # =============================================================================
-# 20 — Top insights + deal hypothesis (template)
+# 20 — Top insights + deal hypothesis
 # =============================================================================
 s = add_slide(); page_chrome(s, 20, TOTAL, "Debrief · Insights", part=3)
-section_title(s, "À remplir pendant les 2 min silencieuses",
-              "Top 3–5 insights + hypothèse de deal.",
-              "Format : un insight = un fait observé en disco + ce qu'il déclenche.")
+section_title(s, "To fill in during the 2 silent minutes",
+              "Top 3–5 insights + deal hypothesis.",
+              "Format: one insight = one observed fact from discovery + what it triggers.")
 
 # left: insights template
 add_rect(s, Inches(0.55), Inches(3.55), Inches(7.6), Inches(3.5), BG_PANEL)
 add_rect(s, Inches(0.55), Inches(3.55), Inches(7.6), Emu(6350), HAIRLINE)
 add_text(s, Inches(0.85), Inches(3.7), Inches(7), Inches(0.4),
-         "TOP INSIGHTS (à formuler en live)", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
+         "TOP INSIGHTS (formulate live)", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 hypotheses = [
-    "1. Marcel sait pour les 31 ? → si oui, champion potentiel ; si non, trou de visibilité.",
-    "2. Claude Code = vrai eval ou veille ? → urgence réelle ou parking.",
-    "3. Senior IC opt-out sur Copilot ? → preuve de gap quality, pas absence d'outil.",
-    "4. Posture sécu : bloquant ou facilitant ? → vitesse de deal.",
-    "5. Budget pré-alloué ? → délai de signature 3 mois vs 9 mois.",
+    "1. Does Marcel know about the 31? → if yes, potential champion; if no, visibility gap.",
+    "2. Claude Code = real eval or scouting? → real urgency or parked.",
+    "3. Senior IC opt-out on Copilot? → proof of quality gap, not tool absence.",
+    "4. Security posture: blocking or facilitating? → deal velocity.",
+    "5. Pre-allocated budget? → 3-month vs 9-month signature delay.",
 ]
 yy = Inches(4.15)
 for h in hypotheses:
@@ -782,35 +781,35 @@ add_rect(s, Inches(8.35), Inches(3.55), Inches(4.45), Emu(6350), HAIRLINE)
 add_text(s, Inches(8.65), Inches(3.7), Inches(4), Inches(0.4),
          "DEAL HYPOTHESIS", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 add_text(s, Inches(8.65), Inches(4.1), Inches(4), Inches(2.6),
-         "Setup typique :\n"
-         "• Urgence moyenne (Claude Code\n   est en eval, pas en décision)\n"
-         "• Champion à confirmer (Marcel ?\n   ou un staff IC sur les 31 Pro ?)\n"
-         "• Sécu = vraie variable\n   (deal-maker ou deal-killer)\n"
-         "• Deal réaliste : POC à 60 j,\n   500–650 seats à 6–9 mois.",
+         "Typical setup:\n"
+         "• Medium urgency (Claude Code\n   is in eval, not decision)\n"
+         "• Champion TBD (Marcel? or a\n   staff IC among the 31 Pro?)\n"
+         "• Security = real variable\n   (deal-maker or deal-killer)\n"
+         "• Realistic deal: 60-day POC,\n   500–650 seats at 6–9 months.",
          size=11, color=TEXT, line_spacing=1.5)
 
 
 # =============================================================================
-# 21 — Strategic questions (4 from the prompt, with answers)
+# 21 — Strategic questions
 # =============================================================================
-s = add_slide(); page_chrome(s, 21, TOTAL, "Debrief · Questions stratégiques", part=3)
-section_title(s, "Les 4 questions du prompt",
-              "Réponses préparées — à reformuler à chaud.",
-              "Ne pas réciter. Reformuler avec ce qu'on aura entendu en disco.")
+s = add_slide(); page_chrome(s, 21, TOTAL, "Debrief · Strategic questions", part=3)
+section_title(s, "The 4 questions from the prompt",
+              "Pre-prepared answers — to reformulate live.",
+              "Don't recite. Reformulate with what you heard in discovery.")
 
 qa = [
-    ("Pourquoi Figma a besoin d'une solution IA coding — Cursor ou pas ?",
-     "650 ingés sur du C++/WASM + Rust + TS = travail à haute complexité. Sans levier IA "
-     "structuré, le talent senior va chercher la productivité ailleurs (interne ou externe)."),
-    ("Que se passe-t-il s'ils ne font rien pendant 3–6 mois ?",
-     "Shadow Cursor monte de 31 à 100+. Claude Code peut-être déployé sans gouvernance. "
-     "Le coût n'est pas l'outil — c'est la sécurité non-contrôlée + patterns figés sur Copilot."),
-    ("Y a-t-il un champion crédible ? Preuves ?",
-     "À tester : Marcel sait-il pour les 31 ? Un staff IC parmi eux est-il identifiable ? "
-     "Champion = quelqu'un qui défend le deal quand on n'est pas dans la salle."),
-    ("Comment Cursor est-il uniquement positionné ?",
-     "VS Code fork (drop-in pour 85 % de l'équipe) + model neutrality (vs Claude Code) + "
-     "large codebase performance (vs Copilot) + Privacy Mode (vs shadow actuel)."),
+    ("Why does Figma need an AI coding solution — Cursor or not?",
+     "650 engineers on C++/WASM + Rust + TS = high-complexity work. Without a structured "
+     "AI lever, senior talent looks for productivity elsewhere (internal or external)."),
+    ("What happens if they do nothing for 3–6 months?",
+     "Shadow Cursor grows from 31 to 100+. Claude Code may roll out without governance. "
+     "The cost isn't the tool — it's uncontrolled security + patterns locked on Copilot."),
+    ("Is there a credible champion? Evidence?",
+     "To test: does Marcel know about the 31? Is a staff IC among them identifiable? "
+     "Champion = someone who defends the deal when we're not in the room."),
+    ("How is Cursor uniquely positioned?",
+     "VS Code fork (drop-in for 85% of the team) + model neutrality (vs Claude Code) + "
+     "large codebase performance (vs Copilot) + Privacy Mode (vs current shadow usage)."),
 ]
 y = Inches(3.5)
 for q, a in qa:
@@ -824,24 +823,24 @@ for q, a in qa:
 
 
 # =============================================================================
-# 22 — Deal risks + self-assessment
+# 22 — Risks + self-assessment
 # =============================================================================
 s = add_slide(); page_chrome(s, 22, TOTAL, "Debrief · Risks + Self-assess", part=3)
-section_title(s, "Anticiper, puis se critiquer",
-              "Risks attendus + qu'est-ce que je changerais.",
-              "Self-aware > overconfident. Nommer les fragilités avant qu'on les pointe.")
+section_title(s, "Anticipate, then self-critique",
+              "Expected risks + what I would change.",
+              "Self-aware > overconfident. Name the fragilities before they're called out.")
 
 # left: deal risks
 add_rect(s, Inches(0.55), Inches(3.55), Inches(6.1), Inches(3.5), BG_PANEL)
 add_rect(s, Inches(0.55), Inches(3.55), Inches(6.1), Emu(6350), HAIRLINE)
 add_text(s, Inches(0.85), Inches(3.7), Inches(5.5), Inches(0.4),
-         "DEAL RISKS ANTICIPÉS", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
+         "ANTICIPATED DEAL RISKS", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 risks = [
-    ("Compétition Claude Code", "L'eval peut conclure « assez bon » avant qu'on ait livré le POC."),
-    ("Sécurité bloquante",      "Si AppSec n'est pas adressé J0, le pilote glisse de 3 mois."),
-    ("Politique interne",       "Copilot a un sponsor org — switch perçu comme un échec interne."),
-    ("Sprawl outils",           "Cursor + Copilot + Claude Code en parallèle = personne ne décide."),
-    ("Procurement",             "Vendor risk review + DPA = 60–90 j incompressibles."),
+    ("Claude Code competition", "Eval may conclude 'good enough' before we ship our POC."),
+    ("Security as blocker",     "If AppSec isn't addressed D0, pilot slips 3 months."),
+    ("Internal politics",       "Copilot has an internal sponsor — switch read as a failure."),
+    ("Tool sprawl",             "Cursor + Copilot + Claude Code in parallel = no one decides."),
+    ("Procurement",             "Vendor risk review + DPA = 60–90 days, non-compressible."),
 ]
 yy = Inches(4.15)
 for k, v in risks:
@@ -857,9 +856,9 @@ add_rect(s, Inches(6.85), Inches(3.55), Inches(5.95), Emu(6350), HAIRLINE)
 add_text(s, Inches(7.15), Inches(3.7), Inches(5.5), Inches(0.4),
          "SELF-ASSESSMENT (template)", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 sa = [
-    ("Ce qui a marché",  "Ouvrir sur les 31 Pro = preuve de prep.\nLaisser Marcel formuler le « why now »."),
-    ("Ce que je changerais", "Plus de temps sur les use-cases concrets (refactos vs review).\nPousser plus tôt sur le budget."),
-    ("Greenfield → disco", "Account thesis nourrit les questions ciblées.\nFaits connus = wedges, pas accessoires."),
+    ("What worked",       "Opening on the 31 Pro = proof of prep.\nLetting Marcel articulate 'why now'."),
+    ("What I'd change",   "More time on concrete use cases (refactors vs review).\nPush earlier on budget."),
+    ("Greenfield → disco","Account thesis fuels targeted questions.\nKnown facts = wedges, not accessories."),
 ]
 yy = Inches(4.15)
 for k, v in sa:
@@ -871,22 +870,21 @@ for k, v in sa:
 
 
 # =============================================================================
-# 23 — Phrases-clés à mémoriser (anti-blank)
+# 23 — Anti-blank phrases
 # =============================================================================
-s = add_slide(); page_chrome(s, 23, TOTAL, "Anti-blank · phrases clés", part=2)
-section_title(s, "Quand on perd le fil",
-              "6 phrases à dire mot pour mot.",
-              "Reprendre la main sans pitcher. Garder l'executive presence sous pression.")
+s = add_slide(); page_chrome(s, 23, TOTAL, "Anti-blank · key phrases", part=2)
+section_title(s, "When you lose the thread",
+              "6 phrases to use word-for-word.",
+              "Take the wheel back without pitching. Keep executive presence under pressure.")
 
 phrases = [
-    ("Si le silence dure", "« Je préfère vous laisser le temps — c'est votre conversation. »"),
-    ("Si on tape sur Cursor",
-     "« C'est un retour fair — voilà ce qu'on fait bien, voilà où on n'est pas le meilleur. »"),
-    ("Si on demande un chiffre qu'on ignore",
-     "« Je ne veux pas inventer — je vous reviens dans la journée avec la vraie réponse. »"),
-    ("Pour pressure-test", "« Qu'est-ce qui devrait être vrai pour que ce soit un non ? »"),
-    ("Pour passer à la sécu", "« Avant qu'on aille plus loin, je veux ouvrir la sécu — c'est là où ça se joue. »"),
-    ("Pour clore", "« Une question avant qu'on bloque le follow-up : qu'est-ce que j'aurais dû demander ? »"),
+    ("If silence drags",     "\"I'd rather give you the time — this is your conversation.\""),
+    ("If Cursor gets hit",   "\"Fair feedback — here's what we do well, here's where we're not the best.\""),
+    ("If asked a number you don't know",
+                             "\"I don't want to make one up — I'll get back to you with the real answer today.\""),
+    ("To pressure-test",     "\"What would need to be true for this to be a no?\""),
+    ("To pivot to security", "\"Before we go further, I want to open security — that's where this gets real.\""),
+    ("To close",             "\"One question before we book the follow-up: what should I have asked?\""),
 ]
 y = Inches(3.55); x_cols = [Inches(0.55), Inches(6.95)]
 for i, (k, v) in enumerate(phrases):
@@ -899,24 +897,23 @@ for i, (k, v) in enumerate(phrases):
 
 
 # =============================================================================
-# 24 — Meta · rubrique d'éval (candidate-only)
+# 24 — Meta · evaluation rubric (candidate-only)
 # =============================================================================
 s = add_slide(); page_chrome(s, 24, TOTAL, "Meta · candidate-only")
-section_title(s, "À masquer pendant l'exercice",
-              "Ce qui est vraiment évalué.",
-              "Six dimensions, explicites dans le prompt. À émettre activement les 60 min.")
+section_title(s, "Hide during the exercise",
+              "What is actually being evaluated.",
+              "Six dimensions, explicit in the prompt. To project actively across the full 60 min.")
 
-# Two-column: what they evaluate + strong/weak signals
 add_rect(s, Inches(0.55), Inches(3.55), Inches(6.1), Inches(3.5), BG_PANEL)
 add_rect(s, Inches(0.55), Inches(3.55), Inches(6.1), Emu(6350), HAIRLINE)
 add_text(s, Inches(0.85), Inches(3.7), Inches(5.5), Inches(0.4),
-         "CE QUI EST ÉVALUÉ (du prompt)", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
+         "WHAT'S BEING EVALUATED (from prompt)", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 eval_items = [
     "Strategic thinking & account thesis",
     "Enterprise stakeholder mapping",
     "Ability to CREATE urgency (not just respond)",
     "Quality + sequencing of discovery",
-    "Executive presence & clarity",
+    "Executive presence & clarity of thought",
     "Structured thinking in debrief",
 ]
 yy = Inches(4.15)
@@ -930,9 +927,9 @@ for item in eval_items:
 add_rect(s, Inches(6.85), Inches(3.55), Inches(5.95), Inches(3.5), BG_PANEL_2)
 add_rect(s, Inches(6.85), Inches(3.55), Inches(5.95), Emu(6350), HAIRLINE)
 add_text(s, Inches(7.15), Inches(3.7), Inches(5.5), Inches(0.4),
-         "SIGNAUX (du doc Cursor)", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
+         "SIGNALS (from Cursor prep doc)", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
 add_text(s, Inches(7.15), Inches(4.1), Inches(5.5), Inches(0.4),
-         "FORTS — à émettre", size=10, color=ACCENT_SOFT, letter_spacing=200, bold=True)
+         "STRONG — to project", size=10, color=ACCENT_SOFT, letter_spacing=200, bold=True)
 strong = ["Prepared", "Self-aware", "Composed", "Tactically sharp", "Coachable"]
 yy = Inches(4.4)
 for item in strong:
@@ -941,8 +938,8 @@ for item in strong:
     yy += Inches(0.3)
 
 add_text(s, Inches(7.15), Inches(6.0), Inches(5.5), Inches(0.4),
-         "FAIBLES — à éviter", size=10, color=TEXT_MUTED, letter_spacing=200, bold=True)
-weak = ["Feature dump", "AI hype", "Overconfident sans grounding"]
+         "WEAK — to avoid", size=10, color=TEXT_MUTED, letter_spacing=200, bold=True)
+weak = ["Feature dump", "AI hype", "Overconfident without grounding"]
 yy = Inches(6.3)
 for item in weak:
     add_text(s, Inches(7.15), yy, Inches(5.3), Inches(0.3),
