@@ -156,7 +156,7 @@ def part_divider(slide, part_num, label, title, body):
 # Build
 # ---------------------------------------------------------------------------
 
-TOTAL = 24
+TOTAL = 25
 
 
 # =============================================================================
@@ -675,9 +675,53 @@ for n, k, body in claims:
 
 
 # =============================================================================
-# 17 — Privacy Mode + SOC 2
+# 17 — CEO Vision · Michael Truell
 # =============================================================================
-s = add_slide(); page_chrome(s, 17, TOTAL, "Security · Privacy Mode", part=2)
+s = add_slide(); page_chrome(s, 17, TOTAL, "Vision · Truell", part=2)
+section_title(s, "Why this matters beyond features",
+              "Michael Truell's vision for Cursor.",
+              "Software development is shifting from typing characters to expressing intent.\nThe editor becomes the place where that conversation happens.")
+
+# left: quote panel
+add_rect(s, Inches(0.55), Inches(3.7), Inches(7.6), Inches(3.3), BG_PANEL)
+add_rect(s, Inches(0.55), Inches(3.7), Inches(7.6), Emu(6350), HAIRLINE)
+add_text(s, Inches(0.9), Inches(3.85), Inches(0.5), Inches(0.4),
+         "\u201C", size=44, color=TEXT_MUTED, font="Georgia")
+add_text(s, Inches(1.35), Inches(4.0), Inches(6.6), Inches(2.7),
+         "We're building toward a \u2018human-AI programmer\u2019 \u2014 "
+         "one entity, combining engineer judgment with AI execution.\n\n"
+         "Senior judgment gets more valuable, not less. The editor "
+         "becomes the system where engineering judgment scales.",
+         size=14, color=TEXT, line_spacing=1.55, italic=True)
+add_text(s, Inches(1.35), Inches(6.55), Inches(6.6), Inches(0.4),
+         "Michael Truell  \u00b7  CEO & co-founder, Cursor",
+         size=10.5, color=TEXT_MUTED, letter_spacing=100)
+
+# right: business outcome panel
+add_rect(s, Inches(8.35), Inches(3.7), Inches(4.45), Inches(3.3), BG_PANEL_2)
+add_rect(s, Inches(8.35), Inches(3.7), Inches(4.45), Emu(6350), HAIRLINE)
+add_text(s, Inches(8.65), Inches(3.85), Inches(4), Inches(0.4),
+         "WHAT THIS MEANS FOR FIGMA", size=10, color=TEXT_MUTED, letter_spacing=300, bold=True)
+add_text(s, Inches(8.65), Inches(4.25), Inches(4), Inches(2.7),
+         "The bet isn\u2019t \u201820% faster typing.\u2019\n\n"
+         "It\u2019s that a single senior engineer\u2019s leverage becomes 3\u20135\u00d7 "
+         "what it is today \u2014 and the orgs that get there first "
+         "compound the advantage every quarter.\n\n"
+         "For 650 engineers on a complex codebase, that\u2019s the line "
+         "the conversation should be on \u2014 not features.",
+         size=11.5, color=TEXT, line_spacing=1.55)
+
+add_text(s, Inches(0.55), Inches(6.85), Inches(12), Inches(0.3),
+         "WHAT TO SAY  \u2014  \u201cThe outcome we\u2019re betting on isn\u2019t faster typing. "
+         "It\u2019s that senior judgment compounds at 3\u20135\u00d7 leverage. We want Figma on "
+         "that curve, not behind it.\u201d",
+         size=10.5, color=ACCENT_SOFT, letter_spacing=20, italic=True)
+
+
+# =============================================================================
+# 18 — Privacy Mode + SOC 2
+# =============================================================================
+s = add_slide(); page_chrome(s, 18, TOTAL, "Security · Privacy Mode", part=2)
 section_title(s, "Minute 13 — I raise it myself",
               "The topic is already with them. We resolve it.",
               "31 Pro users in mixed Privacy Mode = real existing risk. Here's how Cursor resolves it.")
@@ -707,9 +751,9 @@ for n, k, body in items:
 
 
 # =============================================================================
-# 18 — Close
+# 19 — Close
 # =============================================================================
-s = add_slide(); page_chrome(s, 18, TOTAL, "Disco · Close", part=2)
+s = add_slide(); page_chrome(s, 19, TOTAL, "Disco · Close", part=2)
 section_title(s, "Minute 17 — the exit",
               "The exercise goal: a specific follow-up.",
               "Not a pilot. Not a 'let's reconnect.' A named meeting, dated, with a purpose.")
@@ -737,7 +781,7 @@ add_text(s, Inches(0.55), Inches(6.8), Inches(12.25), Inches(0.4),
 
 
 # =============================================================================
-# 19 — PART 3 DIVIDER · Debrief
+# 20 — PART 3 DIVIDER · Debrief
 # =============================================================================
 s = add_slide()
 part_divider(s, 3, "REFLECTION & DEBRIEF",
@@ -745,14 +789,14 @@ part_divider(s, 3, "REFLECTION & DEBRIEF",
              "2–3 silent minutes to gather. Then: top insights · deal hypothesis ·\n"
              "strategic questions · risks · self-assessment.")
 add_text(s, Inches(11.5), Inches(7.05), Inches(1.3), Inches(0.3),
-         f"19 / {TOTAL:02d}", size=9, color=TEXT_MUTED,
+         f"20 / {TOTAL:02d}", size=9, color=TEXT_MUTED,
          align=PP_ALIGN.RIGHT, font=FONT_MONO)
 
 
 # =============================================================================
-# 20 — Top insights + deal hypothesis
+# 21 — Top insights + deal hypothesis
 # =============================================================================
-s = add_slide(); page_chrome(s, 20, TOTAL, "Debrief · Insights", part=3)
+s = add_slide(); page_chrome(s, 21, TOTAL, "Debrief · Insights", part=3)
 section_title(s, "To fill in during the 2 silent minutes",
               "Top 3–5 insights + deal hypothesis.",
               "Format: one insight = one observed fact from discovery + what it triggers.")
@@ -790,9 +834,9 @@ add_text(s, Inches(8.65), Inches(4.1), Inches(4), Inches(2.6),
 
 
 # =============================================================================
-# 21 — Strategic questions
+# 22 — Strategic questions
 # =============================================================================
-s = add_slide(); page_chrome(s, 21, TOTAL, "Debrief · Strategic questions", part=3)
+s = add_slide(); page_chrome(s, 22, TOTAL, "Debrief · Strategic questions", part=3)
 section_title(s, "The 4 questions from the prompt",
               "Pre-prepared answers — to reformulate live.",
               "Don't recite. Reformulate with what you heard in discovery.")
@@ -823,9 +867,9 @@ for q, a in qa:
 
 
 # =============================================================================
-# 22 — Risks + self-assessment
+# 23 — Risks + self-assessment
 # =============================================================================
-s = add_slide(); page_chrome(s, 22, TOTAL, "Debrief · Risks + Self-assess", part=3)
+s = add_slide(); page_chrome(s, 23, TOTAL, "Debrief · Risks + Self-assess", part=3)
 section_title(s, "Anticipate, then self-critique",
               "Expected risks + what I would change.",
               "Self-aware > overconfident. Name the fragilities before they're called out.")
@@ -870,9 +914,9 @@ for k, v in sa:
 
 
 # =============================================================================
-# 23 — Anti-blank phrases
+# 24 — Anti-blank phrases
 # =============================================================================
-s = add_slide(); page_chrome(s, 23, TOTAL, "Anti-blank · key phrases", part=2)
+s = add_slide(); page_chrome(s, 24, TOTAL, "Anti-blank · key phrases", part=2)
 section_title(s, "When you lose the thread",
               "6 phrases to use word-for-word.",
               "Take the wheel back without pitching. Keep executive presence under pressure.")
@@ -897,9 +941,9 @@ for i, (k, v) in enumerate(phrases):
 
 
 # =============================================================================
-# 24 — Meta · evaluation rubric (candidate-only)
+# 25 — Meta · evaluation rubric (candidate-only)
 # =============================================================================
-s = add_slide(); page_chrome(s, 24, TOTAL, "Meta · candidate-only")
+s = add_slide(); page_chrome(s, 25, TOTAL, "Meta · candidate-only")
 section_title(s, "Hide during the exercise",
               "What is actually being evaluated.",
               "Six dimensions, explicit in the prompt. To project actively across the full 60 min.")

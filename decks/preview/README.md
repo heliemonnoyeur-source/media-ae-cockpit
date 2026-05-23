@@ -32,14 +32,15 @@ PDF + PNG renders of `decks/Cursor_Enterprise_Disco_Challenge.pptx`.
 | 14 | Discovery — Marcel (4 Qs) | Disco |
 | 15 | Discovery — Security (3 Qs) | Disco |
 | 16 | Why Cursor — 4 Figma-calibrated angles | Disco |
-| 17 | Privacy Mode + SOC 2 | Disco |
-| 18 | Close — specific follow-up | Disco |
-| 19 | Divider Part 3 | Debrief |
-| 20 | Top insights + deal hypothesis | Debrief |
-| 21 | 4 strategic questions | Debrief |
-| 22 | Deal risks + self-assessment | Debrief |
-| 23 | Anti-blank key phrases | Disco |
-| 24 | Meta — evaluation rubric (candidate-only) | Meta |
+| 17 | CEO Vision — Michael Truell | Disco |
+| 18 | Privacy Mode + SOC 2 | Disco |
+| 19 | Close — specific follow-up | Disco |
+| 20 | Divider Part 3 | Debrief |
+| 21 | Top insights + deal hypothesis | Debrief |
+| 22 | 4 strategic questions | Debrief |
+| 23 | Deal risks + self-assessment | Debrief |
+| 24 | Anti-blank key phrases | Disco |
+| 25 | Meta — evaluation rubric (candidate-only) | Meta |
 
 ## Regenerate
 
